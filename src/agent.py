@@ -2,6 +2,7 @@ import json
 import time
 import os
 import sys
+import asyncio
 import inspect
 import importlib.util
 from pathlib import Path
@@ -16,30 +17,53 @@ from src.memory import MemoryManager
 class GeminiAgent:
     """
     A production-grade agent wrapper for Gemini 3.
-    Implements the Think-Act-Reflect loop.
+    Implements the Think-Act-Reflect loop with MCP integration.
+
+    The agent supports two types of tools:
+    1. Local tools: Python functions in src/tools/ directory
+    2. MCP tools: Tools from connected MCP servers (when MCP_ENABLED=true)
+
+    MCP tools are transparently integrated and appear alongside local tools,
+    allowing the agent to use external services and capabilities seamlessly.
     """
 
     def __init__(self):
         self.settings = settings
         self.memory = MemoryManager()
+        self.mcp_manager = None  # Will be initialized if MCP is enabled
+
         # Dynamically load all tools from src/tools/ directory
         self.available_tools: Dict[str, Callable[..., Any]] = self._load_tools()
-        print(f"🤖 Initializing {self.settings.AGENT_NAME} with model {self.settings.GEMINI_MODEL_NAME}...")
-        print(f"   📦 Discovered {len(self.available_tools)} tools: {', '.join(self.available_tools.keys())}")
+
+        # Initialize MCP integration if enabled
+        if self.settings.MCP_ENABLED:
+            self._initialize_mcp()
+
+        print(
+            f"🤖 Initializing {self.settings.AGENT_NAME} with model {self.settings.GEMINI_MODEL_NAME}..."
+        )
+        print(
+            f"   📦 Discovered {len(self.available_tools)} tools: {', '.join(list(self.available_tools.keys())[:10])}{'...' if len(self.available_tools) > 10 else ''}"
+        )
+
         # Initialize the GenAI client if credentials are available. Some test
         # environments do not provide a Google API key, so fall back to a
         # lightweight dummy client that returns a canned response. This keeps
         # the agent usable in tests without external network access.
         # When running under pytest, prefer a dummy client to keep tests
         # deterministic even if an API key is present in the environment.
-        running_under_pytest = "PYTEST_CURRENT_TEST" in os.environ or "pytest" in sys.modules
+        running_under_pytest = (
+            "PYTEST_CURRENT_TEST" in os.environ or "pytest" in sys.modules
+        )
 
         if running_under_pytest:
+
             class _DummyClient:
                 class _Models:
                     def generate_content(self, model, contents):
                         class _R:
                             text = "I have completed the task"
+
                         return _R()
 
                 def __init__(self):
@@ -57,6 +81,7 @@ class GeminiAgent:
                         def generate_content(self, model, contents):
                             class _R:
                                 text = "I have completed the task"
+
                             return _R()
 
                     def __init__(self):
@@ -64,77 +89,115 @@ class GeminiAgent:
 
                 self.client = _DummyClientFallback()
 
+    def _initialize_mcp(self) -> None:
+        """
+        Initialize MCP (Model Context Protocol) integration.
+
+        This method:
+        1. Creates an MCP client manager
+        2. Connects to configured MCP servers
+        3. Discovers and registers MCP tools
+        4. Makes MCP tools available alongside local tools
+        """
+        try:
+            from src.mcp_client import MCPClientManagerSync
+            from src.tools.mcp_tools import _set_mcp_manager
+
+            print("🔌 Initializing MCP integration...")
+
+            # Create and initialize the MCP manager
+            self.mcp_manager = MCPClientManagerSync()
+            self.mcp_manager.initialize()
+
+            # Set global reference for mcp_tools helper functions
+            _set_mcp_manager(self.mcp_manager._async_manager)
+
+            # Load MCP tools into available_tools
+            mcp_tools = self.mcp_manager.get_all_tools_as_callables()
+
+            if mcp_tools:
+                self.available_tools.update(mcp_tools)
+                print(f"   🔧 Loaded {len(mcp_tools)} MCP tools")
+
+        except ImportError as e:
+            print(f"   ⚠️ MCP library not installed: {e}")
+            print("      To enable MCP, run: pip install 'mcp[cli]'")
+        except Exception as e:
+            print(f"   ⚠️ Failed to initialize MCP: {e}")
+
     def _load_tools(self) -> Dict[str, Callable[..., Any]]:
         """
         Automatically discover and load tools from src/tools/ directory.
-        
+
         Scans the tools directory for Python modules, imports them dynamically,
         and registers any public functions (not starting with _) as available tools.
         This enables the "zero-config" philosophy - just drop a Python file into
         src/tools/ and it becomes available to the agent.
-        
+
         Returns:
             Dictionary mapping tool names to callable functions.
         """
         tools = {}
-        
+
         # Get the src/tools directory path relative to this file
         tools_dir = Path(__file__).parent / "tools"
-        
+
         if not tools_dir.exists():
             print(f"⚠️ Tools directory not found: {tools_dir}")
             return tools
-        
+
         # Iterate through all Python files in the tools directory
         for tool_file in tools_dir.glob("*.py"):
             # Skip __init__.py and private modules
             if tool_file.name.startswith("_"):
                 continue
-            
+
             module_name = tool_file.stem
-            
+
             try:
                 # Dynamically import the module
                 spec = importlib.util.spec_from_file_location(
-                    f"src.tools.{module_name}",
-                    tool_file
+                    f"src.tools.{module_name}", tool_file
                 )
                 if spec and spec.loader:
                     module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(module)
-                    
+
                     # Find all public functions in the module
                     for name, obj in inspect.getmembers(module, inspect.isfunction):
                         # Only register public functions defined in this module
-                        if not name.startswith("_") and obj.__module__ == f"src.tools.{module_name}":
+                        if (
+                            not name.startswith("_")
+                            and obj.__module__ == f"src.tools.{module_name}"
+                        ):
                             tools[name] = obj
                             print(f"   ✓ Loaded tool: {name} from {module_name}.py")
-            
+
             except Exception as e:
                 print(f"   ⚠️ Failed to load tools from {tool_file.name}: {e}")
-        
+
         return tools
-    
+
     def _load_context(self) -> str:
         """
         Automatically load and concatenate all markdown files from .context/ directory.
-        
+
         This allows users to add project-specific knowledge, coding standards, or
         custom rules by simply dropping .md files into .context/. The content is
         automatically injected into the agent's system prompt.
-        
+
         Returns:
             Concatenated content of all .md files in .context/ directory.
         """
         context_parts = []
-        
+
         # Get the .context directory path relative to project root
         # Navigate up from src/ to project root
         context_dir = Path(__file__).parent.parent / ".context"
-        
+
         if not context_dir.exists():
             return ""
-        
+
         # Load all markdown files
         for context_file in sorted(context_dir.glob("*.md")):
             try:
@@ -142,10 +205,10 @@ class GeminiAgent:
                 context_parts.append(f"\n--- {context_file.name} ---\n{content}")
             except Exception as e:
                 print(f"   ⚠️ Failed to load context from {context_file.name}: {e}")
-        
+
         if context_parts:
             print(f"   📚 Loaded context from {len(context_parts)} file(s)")
-        
+
         return "\n".join(context_parts)
 
     def _get_tool_descriptions(self) -> str:
@@ -162,7 +225,10 @@ class GeminiAgent:
         """
         Flattens structured context into a plain-text prompt block.
         """
-        lines = [f"{msg.get('role', '').upper()}: {msg.get('content', '')}" for msg in context_messages]
+        lines = [
+            f"{msg.get('role', '').upper()}: {msg.get('content', '')}"
+            for msg in context_messages
+        ]
         return "\n".join(lines)
 
     def _call_gemini(self, prompt: str) -> str:
@@ -190,7 +256,9 @@ class GeminiAgent:
                 text = str(text)
         return text.strip()
 
-    def _extract_tool_call(self, response_text: str) -> Tuple[Optional[str], Dict[str, Any]]:
+    def _extract_tool_call(
+        self, response_text: str
+    ) -> Tuple[Optional[str], Dict[str, Any]]:
         """
         Parses a model response to detect a tool invocation request.
 
@@ -218,11 +286,18 @@ class GeminiAgent:
 
         return None, {}
 
-    def summarize_memory(self, old_messages: List[Dict[str, Any]], previous_summary: str) -> str:
+    def summarize_memory(
+        self, old_messages: List[Dict[str, Any]], previous_summary: str
+    ) -> str:
         """
         Summarize older history into a concise buffer using Gemini.
         """
-        history_block = "\n".join([f"- {m.get('role', 'unknown')}: {m.get('content', '')}" for m in old_messages])
+        history_block = "\n".join(
+            [
+                f"- {m.get('role', 'unknown')}: {m.get('content', '')}"
+                for m in old_messages
+            ]
+        )
         prompt = (
             "You are an expert conversation summarizer for an autonomous agent.\n"
             "Goals:\n"
@@ -245,13 +320,13 @@ class GeminiAgent:
         """
         # Load context knowledge from .context/ directory
         context_knowledge = self._load_context()
-        
+
         # Inject context into system prompt
         system_prompt = (
             f"{context_knowledge}\n\n"
             "You are a focused agent following the Artifact-First protocol. Stay concise and tactical."
         )
-        
+
         context_window = self.memory.get_context_window(
             system_prompt=system_prompt,
             max_messages=10,
@@ -360,7 +435,41 @@ class GeminiAgent:
         print(f"📦 Result: {result}")
         self.reflect()
 
+    def shutdown(self) -> None:
+        """
+        Gracefully shutdown the agent and cleanup resources.
+
+        This method should be called when the agent is no longer needed,
+        especially when MCP integration is enabled to properly close
+        server connections.
+        """
+        if self.mcp_manager:
+            print("🔌 Shutting down MCP connections...")
+            self.mcp_manager.shutdown()
+        print("👋 Agent shutdown complete.")
+
+    def get_mcp_status(self) -> Dict[str, Any]:
+        """
+        Get the status of MCP integration.
+
+        Returns:
+            Dictionary with MCP status information including:
+            - enabled: Whether MCP is enabled in settings
+            - initialized: Whether MCP manager is initialized
+            - servers: Status of each connected server
+        """
+        if not self.mcp_manager:
+            return {
+                "enabled": self.settings.MCP_ENABLED,
+                "initialized": False,
+                "servers": {},
+            }
+        return self.mcp_manager.get_status()
+
 
 if __name__ == "__main__":
     agent = GeminiAgent()
-    agent.run("Analyze the stock performance of GOOGL")
+    try:
+        agent.run("Analyze the stock performance of GOOGL")
+    finally:
+        agent.shutdown()
