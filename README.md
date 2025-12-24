@@ -11,15 +11,60 @@ Language: [English](/docs/en/) | [中文](README_CN.md) | [Español](/docs/es/)
 
 ## ⚡ Quick Start
 
+### Automated Installation (Recommended)
+
+**Linux / macOS:**
 ```bash
 # 1. Clone the template
 git clone https://github.com/study8677/antigravity-workspace-template.git my-project
 cd my-project
 
-# 2. Install dependencies
+# 2. Run the installer
+chmod +x install.sh
+./install.sh
+
+# 3. Configure your API keys
+nano .env
+
+# 4. Run the agent
+source venv/bin/activate
+python src/agent.py
+```
+
+**Windows:**
+```cmd
+# 1. Clone the template
+git clone https://github.com/study8677/antigravity-workspace-template.git my-project
+cd my-project
+
+# 2. Run the installer
+install.bat
+
+# 3. Configure your API keys (notepad .env)
+
+# 4. Run the agent
+python src/agent.py
+```
+
+### Manual Installation
+
+```bash
+# 1. Clone the template
+git clone https://github.com/study8677/antigravity-workspace-template.git my-project
+cd my-project
+
+# 2. Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the agent
+# 4. Configure your API keys
+cp .env.example .env  # (if available) or create .env manually
+nano .env
+
+# 5. Run the agent
 python src/agent.py
 ```
 
