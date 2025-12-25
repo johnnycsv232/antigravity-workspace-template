@@ -9,6 +9,36 @@ Language: [English](/docs/en/) | [中文](README_CN.md) | [Español](/docs/es/)
 ![Architecture](https://img.shields.io/badge/Architecture-Event_Driven-purple)
 ![Memory](https://img.shields.io/badge/Context-Infinite-orange)
 
+## 🌟 Project Intent
+
+In a world full of AI IDEs, I want enterprise-grade architecture to be as simple as **Clone → Rename → Prompt**.
+
+This project leverages IDE context awareness (via `.cursorrules` and `.antigravity/rules.md`) to pre-embed a complete **cognitive architecture** in the repo.
+
+When you open this project, your IDE stops being just an editor—it becomes an **industry-savvy architect**.
+
+**First principles:**
+
+- Minimize repetition: the repo should encode defaults so setup is nearly zero.
+- Make intent explicit: capture architecture, context, and workflows in files, not tribal knowledge.
+- Treat the IDE as a teammate: contextual rules turn the editor into a proactive architect, not a passive tool.
+
+### Why do we need a thinking scaffold?
+
+While building with Google Antigravity or Cursor, I found a pain point:
+
+**The IDE and models are powerful, but the empty project is too weak.**
+
+Every new project repeats the same boring setup:
+
+- "Should my code live in `src` or `app`?"
+- "How do I define utilities so Gemini recognizes them?"
+- "How do I help the AI remember prior context?"
+
+This repetition wastes creative energy. My ideal workflow is: **after a git clone, the IDE already knows what to do.**
+
+So I built this project: **Antigravity Workspace Template**.
+
 ## ⚡ Quick Start
 
 ### Automated Installation (Recommended)

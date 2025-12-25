@@ -1,207 +1,235 @@
-﻿# 🪐 Google Antigravity 工作区模板（企业版）
-语言版本: [English](README.md) | [中文](README_CN.md) | [Espanol](README_ES.md)
+# 🪐 Google Antigravity Workspace Template
+
+**用于在 Google Antigravity 上构建自主 AI 代理的生产级入门套件。**
+
+语言: [English](/docs/en/) | [中文](README_CN.md) | [Español](/docs/es/)
 
 ![License](https://img.shields.io/badge/License-MIT-green)
-
 ![Gemini](https://img.shields.io/badge/AI-Gemini_2.0_Flash-blue)
 ![Architecture](https://img.shields.io/badge/Architecture-Event_Driven-purple)
 ![Memory](https://img.shields.io/badge/Context-Infinite-orange)
 
-欢迎使用 **Antigravity 工作区模板**。这是一个生产级的入门套件，用于在 Google Antigravity 平台上构建自主 Agent，完全符合 **Antigravity 官方文档**——并以极简、透明的架构自豪地成为 “Anti-LangChain”。
-
-
 ## 🌟 项目初衷
 
-在当前 AI IDE 这么丰富的现在，我只需要 **Clone -> Rename -> Prompt** 这个步骤，就可以完成一个企业级的架构。
+在 AI IDE 如此丰富的今天，我希望企业级架构可以像 **Clone → Rename → Prompt** 一样简单。
 
-本项目利用了 IDE 的上下文感知能力（通过 `.cursorrules` 和 `.antigravity/rules.md`），将一套完整的 **认知架构** 预埋到了项目文件里。
+本项目利用 IDE 的上下文感知能力（通过 `.cursorrules` 和 `.antigravity/rules.md`），在仓库中预埋了一套完整的 **认知架构**。
 
-当你打开这个项目时，你的 IDE 就不再只是一个编辑器，它变成了一个**“懂行”的架构师**。
+当你打开这个项目时，IDE 不再只是编辑器，而是一位**懂行的架构师**。
 
-### 为什么我们需要一个“有思想”的脚手架？
+**第一性原理：**
 
-在使用 Google Antigravity 或 Cursor 进行 AI 开发时，我发现了一个痛点：
+- **减少重复**：让仓库内置默认值，降低上手成本。
+- **显式表达意图**：把架构、上下文和工作流写进文件，而不是口口相传。
+- **把 IDE 当队友**：借助上下文规则，让编辑器成为主动的架构师，而不是被动工具。
 
-**IDE 和模型都很强，但“空项目”太弱了。**
+### 为什么需要一个“有思想”的脚手架？
 
-每次新建一个项目，我们都要重复一遍无聊的配置：
-- “我的代码要放在 src 还是 app？”
-- “工具函数怎么定义才能让 Gemini 识别？”
-- “怎么让 AI 记住上文？”
+在使用 Google Antigravity 或 Cursor 开发时，我发现了一个痛点：
 
-这种重复劳动是对创造力的浪费。我心中的完美工作流应该是这样的： **Git Clone 下来，IDE 就已经知道该干什么了。**
+**IDE 和模型都很强，但空项目太弱。**
+
+每个新项目都要重复同样的枯燥配置：
+
+- “代码该放在 `src` 还是 `app`？”
+- “工具函数怎么写才能让 Gemini 识别？”
+- “怎样让 AI 记住上下文？”
+
+这种重复消耗创造力。理想的工作流是：**git clone 之后，IDE 已经知道该做什么。**
 
 所以我做了这个项目：**Antigravity Workspace Template**。
 
-## 🧠 核心理念：Artifact-First（产物优先）
+## ⚡ 快速开始
 
-本工作区强制执行 **Artifact-First** 协议。Agent 不仅写代码；它会为每个复杂任务产出可验证的 Artifact。
+### 自动安装（推荐）
 
-1. **规划**：在编码前先创建 `artifacts/plan_[task_id].md`。
-2. **证据**：日志与测试输出保存到 `artifacts/logs/`。
-3. **视觉**：UI 变更会生成截图产物。
-
-## 🛸 工作原理
-
-Agent 遵循严格的 “Think-Act-Reflect” 循环，模拟 Gemini 3 的认知过程。
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Agent as 🤖 GeminiAgent
-    participant Memory as 🧠 Memory
-    participant Tools as 🛠️ Tools
-    participant Artifacts as 📂 Artifacts
-
-    User->>Agent: "重构认证模块"
-    activate Agent
-    
-    Agent->>Artifacts: 创建实施计划
-    
-    Note over Agent: <thought> 深度思考过程 </thought>
-    Agent->>Agent: 制定策略
-    
-    Agent->>Tools: 执行工具 (code_edit)
-    activate Tools
-    Tools-->>Agent: 结果
-    deactivate Tools
-    
-    Agent->>Artifacts: 保存日志/证据
-    
-    Agent-->>User: 最终报告 (Walkthrough)
-    deactivate Agent
-```
-
-## 🔥 杀手级特性
-
-- 🧠 **无限记忆引擎**：递归式摘要自动压缩历史，打破上下文限制。
-- 🛠️ **通用工具协议**：通用 ReAct 模式。把任意 Python 函数注册到 `available_tools`，Agent 即可学会调用。
-- ⚡️ **Gemini 原生**：针对 Gemini 2.0 Flash 的速度与函数调用能力做了优化。
-- 🔌 **外部 LLM（OpenAI 兼容）**：通过内置 `call_openai_chat` 工具，以统一的 OpenAI 接口调用外部大模型（OpenAI/Azure/Ollama 等）。
-
-## 🚀 快速开始
-
-### 本地开发
-1. **安装依赖**：
-    ```bash
-    pip install -r requirements.txt
-    ```
-2. **运行 Agent**：
-    ```bash
-    python src/agent.py
-    ```
-
-### Docker 部署
-1. **构建并运行**：
-    ```bash
-    docker-compose up --build
-    ```
-
-## 📂 项目结构
-
-```
-.
-├── .antigravity/       # 🛸 官方 Antigravity 配置
-│  └── rules.md        # Agent 规则与权限
-├── artifacts/          # 📂 Agent 产物（计划、日志、视觉）
-├── .context/           # AI 知识库
-├── .github/            # CI/CD 工作流
-├── src/                # 源代码
-│  ├── agent.py        # Agent 主逻辑
-│  ├── config.py       # 设置管理
-│  ├── memory.py       # JSON 记忆管理
-│  └── tools/          # Agent 工具
-├── tests/              # 测试套件
-├── .cursorrules        # 兼容性指针
-├── Dockerfile          # 生产环境构建
-├── docker-compose.yml  # 本地开发配置
-└── mission.md          # Agent 目标
-```
-
-## 🚀 “零配置” 工作流
-
-停止撰写冗长的系统提示。本工作区已预加载 AI 的认知架构。
-
-### 第一步：克隆与重命名（“模具”）
-将此仓库视为工厂模具。克隆后将文件夹重命名为你的项目名称。
+**Linux / macOS：**
 ```bash
-git clone https://github.com/study8677/antigravity-workspace-template.git my-agent-project
-cd my-agent-project
-# 现在你已准备就绪，无需额外设置。
+# 1. 克隆模板
+git clone https://github.com/study8677/antigravity-workspace-template.git my-project
+cd my-project
+
+# 2. 运行安装脚本
+chmod +x install.sh
+./install.sh
+
+# 3. 配置 API 密钥
+nano .env
+
+# 4. 运行 Agent
+source venv/bin/activate
+python src/agent.py
 ```
 
-### 第二步：魔法时刻 ⚡️
-在 Cursor 或 Google Antigravity 中打开文件夹。
-- 👀 **观察**：IDE 自动检测 `.cursorrules`。
-- 🧠 **加载**：AI 静默摄取 `.antigravity/rules.md` 中的 “Antigravity Expert” 人格。
+**Windows：**
+```cmd
+# 1. 克隆模板
+git clone https://github.com/study8677/antigravity-workspace-template.git my-project
+cd my-project
 
-### 第三步：直接提示（无需额外指令）
-你无需提醒 AI “注意” 或 “使用 src 目录”。它已被预设为高级工程师。
+# 2. 运行安装脚本
+install.bat
 
-**旧方式（手动提示）**：
-> “写一个贪吃蛇游戏，确保模块化，放在 src 里，别忘了注释……”
+# 3. 配置 API 密钥（notepad .env）
 
-**Antigravity 方式**：
-> “构建一个贪吃蛇游戏。”
+# 4. 运行 Agent
+python src/agent.py
+```
 
-AI 会自动：
-1. 🛑 **暂停**：“根据协议，我必须先规划。”
-2. 📄 **文档**：生成 `artifacts/plan_snake.md`。
-3. 🔨 **构建**：将模块化代码写入 `src/game/`，附完整 Google 风格文档字符串。
+### 手动安装
 
-## 🗺️ 路线图
-
-- [x] **阶段 1：基础**（脚手架、配置、记忆）
-- [x] **阶段 2：DevOps**（Docker、CI/CD）
-- [x] **阶段 3：Antigravity 合规**（规则、产物）
-- [x] **阶段 4：高级记忆**（摘要缓冲区已实现 ✅）
-- [x] **阶段 5：认知架构**（通用工具调度已实现 ✅）
-- [x] **阶段 6：动态发现**（自动工具与上下文加载 ✅）
-- [x] **阶段 7：多智能体 Swarm**（路由器-工作者编排 ✅）
-- [ ] **阶段 8：企业级核心** ("Agent OS" 愿景) - *由 [@devalexanderdaza](https://github.com/devalexanderdaza) 提议*
-  - [ ] **MCP 集成**：导入/暴露模型上下文协议服务器，实现通用工具连接。
-  - [ ] **沙箱环境**：安全代码执行（如 E2B 或本地 Docker），用于高风险操作。
-  - [ ] **编排工作流**：用于复杂任务的结构化、并行执行管道 (DAG)。
-
-## 🌐 新增：外部 LLM（OpenAI 兼容）
-
-使用任意 OpenAI 接口格式的聊天补全端点（OpenAI/Azure/Ollama 等）来驱动 Agent。
-
-1) 配置环境变量：
 ```bash
-OPENAI_BASE_URL=https://api.openai.com/v1   # 或 http://localhost:11434/v1 等 OpenAI 兼容端点
-OPENAI_API_KEY=sk-...                       # 若端点无需鉴权可留空
-OPENAI_MODEL=gpt-4o-mini                    # 或你的模型名
+# 1. 克隆模板
+git clone https://github.com/study8677/antigravity-workspace-template.git my-project
+cd my-project
+
+# 2. 创建虚拟环境
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# 3. 安装依赖
+pip install -r requirements.txt
+
+# 4. 配置 API 密钥
+cp .env.example .env  #（如有）或手动创建 .env
+nano .env
+
+# 5. 运行 Agent
+python src/agent.py
 ```
-2) 工具：`call_openai_chat`（参数：prompt，system，可选 model、temperature、max_tokens）。
-3) 行为：遵循标准 `/chat/completions` JSON，返回第一条消息文本或错误信息。
 
-## Star History
+**就这么简单！** IDE 会通过 `.cursorrules` + `.antigravity/rules.md` 自动加载配置，你可以直接开始提示。
 
-[![Star History Chart](https://api.star-history.com/svg?repos=study8677/antigravity-workspace-template&type=Date)](https://star-history.com/#study8677/antigravity-workspace-template&Date)
+## 🎯 这是什么？
 
+这并不是另一个 LangChain 封装。它是一个极简、透明的工作区，用于构建能够：
 
-## Star History
+- 🧠 拥有无限记忆（递归摘要）
+- 🛠️ 从 `src/tools/` 自动发现工具
+- 📚 从 `.context/` 自动注入上下文
+- 🔌 无缝连接 MCP 服务器
+- 🤖 协调多个专家型 Agent
+- 📦 将输出保存为 Artifact（计划、日志、证据）
+
+**Clone → Rename → Prompt，即是工作流。**
+
+## 🚀 关键特性
+
+| 特性 | 描述 |
+|---------|-------------|
+| 🧠 **无限记忆** | 递归摘要自动压缩上下文 |
+| 🛠️ **通用工具** | 将 Python 函数放入 `src/tools/` 即可自动发现 |
+| 📚 **自动上下文** | 向 `.context/` 添加文件即可自动注入提示 |
+| 🔌 **MCP 支持** | 连接 GitHub、数据库、文件系统、自定义服务器 |
+| 🤖 **Swarm Agent** | Router-Worker 模式的多 Agent 编排 |
+| ⚡ **Gemini 原生** | 为 Gemini 2.0 Flash 做了优化 |
+| 🌐 **LLM 无关** | 支持 OpenAI、Azure、Ollama 或任何兼容 OpenAI 的 API |
+| 📂 **Artifact-First** | 每个任务都会生成计划、日志和证据 |
+
+## 📚 文档
+
+**完整文档位于 `/docs/en/`：**
+
+- **[Quick Start](docs/en/QUICK_START.md)** — 安装与部署
+- **[Philosophy](docs/en/PHILOSOPHY.md)** — 核心理念与架构
+- **[Zero-Config](docs/en/ZERO_CONFIG.md)** — 自动工具与上下文加载
+- **[MCP Integration](docs/en/MCP_INTEGRATION.md)** — 外部工具连接
+- **[Swarm Protocol](docs/en/SWARM_PROTOCOL.md)** — 多 Agent 协调
+- **[Roadmap](docs/en/ROADMAP.md)** — 未来规划与愿景
+
+## 🏗️ 项目结构
+
+```
+src/
+├── agent.py           # Agent 主循环
+├── memory.py          # JSON 记忆管理
+├── mcp_client.py      # MCP 集成
+├── swarm.py           # 多 Agent 编排
+├── agents/            # 专家型 Agent
+└── tools/             # 自定义工具
+
+.context/             # 知识库（自动注入）
+.antigravity/         # Antigravity 规则
+artifacts/            # 输出与证据
+```
+
+## 💡 30 秒创建一个工具
+
+```python
+# src/tools/my_tool.py
+def analyze_sentiment(text: str) -> str:
+    """Analyzes the sentiment of given text."""
+    return "positive" if len(text) > 10 else "neutral"
+```
+
+**重启 Agent。** 完成！工具已可用。
+
+## 🔌 MCP 集成
+
+连接外部工具：
+
+```json
+{
+  "servers": [
+    {
+      "name": "github",
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "enabled": true
+    }
+  ]
+}
+```
+
+Agent 会自动发现并使用所有 MCP 工具。
+
+## 🤖 多 Agent Swarm
+
+分解复杂任务：
+
+```python
+from src.swarm import SwarmOrchestrator
+
+swarm = SwarmOrchestrator()
+result = swarm.execute("构建并审查一个计算器")
+```
+
+Swarm 会自动：
+- 📤 路由到 Coder、Reviewer、Researcher Agent
+- 🧩 综合结果
+- 📂 保存 Artifact
+
+## ✅ 已完成内容
+
+- ✅ 阶段 1-7：基础、DevOps、记忆、工具、Swarm、发现
+- ✅ 阶段 8：MCP 集成（已完全实现）
+- 🚀 阶段 9：企业核心（进行中）
+
+详见 [Roadmap](docs/en/ROADMAP.md)。
+
+## 🤝 贡献
+
+创意也是贡献！欢迎在 [issue](https://github.com/study8677/antigravity-workspace-template/issues) 中：
+- 报告 bug
+- 提出功能建议
+- 提交架构方案（阶段 9）
+
+或提交 PR 改进文档或代码。
 
 ## 👥 贡献者
 
-特别感谢参与本项目建设的社区成员：
+- [@devalexanderdaza](https://github.com/devalexanderdaza) — 首位贡献者。实现了演示工具、增强了 Agent 功能、提出了 “Agent OS” 路线图，并完成 MCP 集成。
+- [@Subham-KRLX](https://github.com/Subham-KRLX) — 添加了动态工具与上下文加载（修复 #4），以及多 Agent 集群协议（修复 #6）。
 
-- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(首位贡献者!)**
-  - 实现了演示工具脚本，并增强了 Agent 的功能集成。
-  - 提出了 **"Agent OS" 路线图** (MCP, 沙箱, 编排)。
-  - 完成 MCP 搭建
-- [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
-  - 添加动态工具和上下文加载 (修复 #4)
-  - 新增功能：添加多智能体集群协议 (修复 #6)
+## ⭐ Star History
 
-**想要参与贡献？** 请查看我们的 [Issues](https://github.com/study8677/antigravity-workspace-template/issues) 页面！
+[![Star History Chart](https://api.star-history.com/svg?repos=study8677/antigravity-workspace-template&type=Date)](https://star-history.com/#study8677/antigravity-workspace-template&Date)
 
-## 💡 征集创意：Swarm 协议
+## 📄 许可证
 
-我们像重视代码一样重视**创意 (Ideas)**！
-我们目前正在为 **第六阶段：多智能体 Swarm** 进行架构头脑风暴。如果您能提供可靠的架构建议或详细设计并被采纳，**您将被列入我们的 README 贡献者名单**。
+MIT License. 详见 [LICENSE](LICENSE)。
 
-即使您没有时间编写实现代码，也请随时在 [Issues](https://github.com/study8677/antigravity-workspace-template/issues) 中分享您的想法。
+---
 
-
+**[查看完整文档 →](docs/en/)**
