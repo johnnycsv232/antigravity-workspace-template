@@ -1,0 +1,27 @@
+# IronClad CODEOWNERS
+# These owners will be requested for review on PRs that touch their areas.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner — all files
+* @johnnycsv232
+
+# Agent core
+/src/agent.py @johnnycsv232
+/src/config.py @johnnycsv232
+/src/memory.py @johnnycsv232
+
+# Infrastructure
+/Dockerfile @johnnycsv232
+/docker-compose.yml @johnnycsv232
+/.github/ @johnnycsv232
+
+# IronClad business docs
+/docs/ironclad/ @johnnycsv232
+
+# Agent rules & orchestration
+/.agent/ @johnnycsv232
+/.antigravity/ @johnnycsv232
+
+# Secrets & config
+/.env.example @johnnycsv232
+/mcp_servers.json @johnnycsv232
