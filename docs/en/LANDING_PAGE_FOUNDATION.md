@@ -8,6 +8,12 @@ This repo now includes a dedicated frontend workspace at `landing/` so landing-p
 - ESLint configured by Vite template
 - Root `Makefile` targets for landing-page workflows
 - GitHub Actions workflow for landing lint/build: `.github/workflows/landing-ci.yml`
+- Stitch-loop baton files initialized in `landing/`:
+  - `SITE.md`
+  - `DESIGN.md`
+  - `next-prompt.md`
+  - `stitch.json`
+  - `queue/` and `site/public/`
 - A starter "build-control" page in `landing/src/App.tsx` with:
   - readiness checklist
   - implementation backlog
@@ -40,6 +46,15 @@ npm --prefix landing run build
 4. Implement analytics + form submission handling.
 5. Run `make landing-verify`.
 6. Run full project verification via `make verify`.
+
+## Stitch-loop usage
+
+If Stitch MCP tools are available, run iterative generation from the baton:
+
+1. Read `landing/next-prompt.md`
+2. Generate page with Stitch into `landing/queue/`
+3. Move validated output to `landing/site/public/{page}.html`
+4. Update `landing/SITE.md` and write the next baton prompt
 
 ## Definition of ready
 

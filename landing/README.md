@@ -34,6 +34,23 @@ npm run build
 - `src/App.css`: layout and component-level styles
 - `src/index.css`: design tokens, typography, and global styles
 - `public/`: static assets for production page
+- `SITE.md`, `DESIGN.md`, `next-prompt.md`: stitch-loop baton workflow files
+- `queue/` -> `site/public/`: stitch-loop asset pipeline for generated HTML
+
+## Stitch loop status
+
+The stitch-loop baton files are initialized for this project.
+
+- Current baton: `next-prompt.md` (`page: proof`)
+- Static integration target: `site/public/`
+- Stitch project metadata: `stitch.json`
+
+When Stitch MCP tools are available, run the loop by:
+1. reading `next-prompt.md`
+2. generating with Stitch
+3. saving output to `queue/`
+4. moving final page into `site/public/`
+5. updating `SITE.md` + next baton
 
 ## Next implementation step
 
