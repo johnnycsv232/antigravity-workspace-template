@@ -9,7 +9,7 @@ Without branch protection, anyone (or any agent) can push directly to `main`, po
 Go to: **GitHub → Settings → Branches → Add branch protection rule**
 
 | Setting | Value | Why |
-|---------|-------|-----|
+| --- | --- | --- |
 | **Branch name pattern** | `main` | Protects the default branch |
 | **Require a pull request before merging** | ✅ On | Forces code review |
 | **Required approvals** | 1 | At least one human reviews |
@@ -23,7 +23,7 @@ Go to: **GitHub → Settings → Branches → Add branch protection rule**
 
 ## Branching Strategy
 
-```
+```plaintext
 main ← production-ready code only
   └── feature/<name> ← all development work
   └── fix/<name> ← bug fixes
@@ -39,7 +39,7 @@ main ← production-ready code only
 
 ### Commit Convention
 
-```
+```plaintext
 feat: new feature
 fix: bug fix
 infra: infrastructure/config change

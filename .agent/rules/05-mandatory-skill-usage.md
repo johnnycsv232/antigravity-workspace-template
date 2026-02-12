@@ -17,7 +17,7 @@ Before implementing any task that falls within an installed skill's domain, you 
 ## Domain → Skill Quick Reference
 
 | When working on... | Load these skills |
-|---|---|
+| --- | --- |
 | Twilio / SMS / calls | `twilio-communications` |
 | Stripe / billing | `stripe-integration`, `stripe-automation` |
 | n8n / workflow automation | `n8n-mcp-tools-expert`, `n8n-node-configuration`, `n8n-code-python` |
