@@ -1,6 +1,9 @@
+from unittest.mock import patch
+
 import pytest
-from unittest.mock import MagicMock, patch
+
 from src.agent import GeminiAgent
+
 
 @pytest.fixture
 def mock_agent():
@@ -13,7 +16,7 @@ def mock_agent():
 
 def test_agent_initialization(mock_agent):
     """Test that the agent initializes correctly."""
-    assert mock_agent.settings.AGENT_NAME == "AntigravityAgent"
+    assert mock_agent.settings.AGENT_NAME == "IronCladAgent"
 
 def test_agent_think_act_loop(mock_agent):
     """Test the Think-Act loop."""

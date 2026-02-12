@@ -1,6 +1,6 @@
-import os
 from pathlib import Path
 from typing import List, Optional
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -35,7 +35,7 @@ class Settings(BaseSettings):
     GEMINI_MODEL_NAME: str = "gemini-2.0-flash-exp"  # Default to latest
 
     # Agent Configuration
-    AGENT_NAME: str = "AntigravityAgent"
+    AGENT_NAME: str = "IronCladAgent"
     DEBUG_MODE: bool = False
 
     # External LLM (OpenAI-compatible) Configuration

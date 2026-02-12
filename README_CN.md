@@ -1,6 +1,6 @@
-# 🪐 Google Antigravity Workspace Template
+# 🛡️ IronClad
 
-**用于在 Google Antigravity 上构建自主 AI 代理的生产级入门套件。**
+**面向家庭服务承包商的 AI 驱动未接来电捕获系统。**
 
 语言: [English](/docs/en/) | [中文（仓库主页）](README_CN.md) | [中文文档](/docs/zh/) | [Español](/docs/es/)
 
@@ -44,6 +44,7 @@
 ### 自动安装（推荐）
 
 **Linux / macOS：**
+
 ```bash
 # 1. 克隆模板
 git clone https://github.com/study8677/antigravity-workspace-template.git my-project
@@ -62,6 +63,7 @@ python src/agent.py
 ```
 
 **Windows：**
+
 ```cmd
 # 1. 克隆模板
 git clone https://github.com/study8677/antigravity-workspace-template.git my-project
@@ -116,7 +118,7 @@ python src/agent.py
 ## 🚀 关键特性
 
 | 特性 | 描述 |
-|---------|-------------|
+| --- | --- |
 | 🧠 **无限记忆** | 递归摘要自动压缩上下文 |
 | 🛠️ **通用工具** | 将 Python 函数放入 `src/tools/` 即可自动发现 |
 | 📚 **自动上下文** | 向 `.context/` 添加文件即可自动注入提示 |
@@ -139,7 +141,7 @@ python src/agent.py
 
 ## 🏗️ 项目结构
 
-```
+```text
 src/
 ├── agent.py           # Agent 主循环
 ├── memory.py          # JSON 记忆管理
@@ -196,6 +198,7 @@ result = swarm.execute("构建并审查一个计算器")
 ```
 
 Swarm 会自动：
+
 - 📤 路由到 Coder、Reviewer、Researcher Agent
 - 🧩 综合结果
 - 📂 保存 Artifact
@@ -218,6 +221,7 @@ Swarm 会自动：
 ## 🤝 贡献
 
 创意也是贡献！欢迎在 [issue](https://github.com/study8677/antigravity-workspace-template/issues) 中：
+
 - 报告 bug
 - 提出功能建议
 - 提交架构方案（阶段 9）

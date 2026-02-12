@@ -1,11 +1,10 @@
 """Tests for the multi-agent swarm system."""
 
-import pytest
-from src.swarm import SwarmOrchestrator, MessageBus
-from src.agents.router_agent import RouterAgent
 from src.agents.coder_agent import CoderAgent
-from src.agents.reviewer_agent import ReviewerAgent
 from src.agents.researcher_agent import ResearcherAgent
+from src.agents.reviewer_agent import ReviewerAgent
+from src.agents.router_agent import RouterAgent
+from src.swarm import MessageBus, SwarmOrchestrator
 
 
 class TestMessageBus:

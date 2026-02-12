@@ -5,12 +5,13 @@ Implements a lightweight Router-Worker pattern for coordinating multiple
 specialist agents to solve complex tasks collaboratively.
 """
 
-from typing import Any, Dict, List
 from datetime import datetime
-from src.agents.router_agent import RouterAgent
+from typing import Any, Dict, List
+
 from src.agents.coder_agent import CoderAgent
-from src.agents.reviewer_agent import ReviewerAgent
 from src.agents.researcher_agent import ResearcherAgent
+from src.agents.reviewer_agent import ReviewerAgent
+from src.agents.router_agent import RouterAgent
 
 
 class MessageBus:

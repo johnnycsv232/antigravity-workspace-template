@@ -6,8 +6,10 @@ and communication with the Gemini API.
 """
 
 import os
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
+
 from google import genai
+
 from src.config import settings
 
 

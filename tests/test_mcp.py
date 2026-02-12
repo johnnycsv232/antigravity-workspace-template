@@ -10,13 +10,11 @@ These tests verify:
 
 import json
 import os
-import pytest
 from pathlib import Path
-from unittest.mock import MagicMock, patch, AsyncMock
-from typing import Dict, Any
+from unittest.mock import MagicMock
 
 # Test configuration
-from src.config import settings, MCPServerConfig
+from src.config import MCPServerConfig, settings
 
 
 class TestMCPServerConfig:
@@ -110,7 +108,7 @@ class TestMCPClientManager:
     def test_import_mcp_client(self):
         """Test that mcp_client module can be imported."""
         try:
-            from src.mcp_client import MCPClientManager, MCPTool, MCPServerConnection
+            from src.mcp_client import MCPClientManager, MCPServerConnection, MCPTool
 
             assert MCPClientManager is not None
             assert MCPTool is not None
@@ -154,9 +152,9 @@ class TestMCPTools:
     def test_import_mcp_tools(self):
         """Test that mcp_tools module can be imported."""
         from src.tools.mcp_tools import (
+            get_mcp_tool_help,
             list_mcp_servers,
             list_mcp_tools,
-            get_mcp_tool_help,
             mcp_health_check,
         )
 
@@ -167,7 +165,7 @@ class TestMCPTools:
 
     def test_list_mcp_servers_no_manager(self):
         """Test list_mcp_servers when manager is not initialized."""
-        from src.tools.mcp_tools import list_mcp_servers, _set_mcp_manager
+        from src.tools.mcp_tools import _set_mcp_manager, list_mcp_servers
 
         # Ensure no manager is set
         _set_mcp_manager(None)
@@ -177,7 +175,7 @@ class TestMCPTools:
 
     def test_list_mcp_tools_no_manager(self):
         """Test list_mcp_tools when manager is not initialized."""
-        from src.tools.mcp_tools import list_mcp_tools, _set_mcp_manager
+        from src.tools.mcp_tools import _set_mcp_manager, list_mcp_tools
 
         _set_mcp_manager(None)
 
@@ -186,7 +184,7 @@ class TestMCPTools:
 
     def test_get_mcp_tool_help_no_manager(self):
         """Test get_mcp_tool_help when manager is not initialized."""
-        from src.tools.mcp_tools import get_mcp_tool_help, _set_mcp_manager
+        from src.tools.mcp_tools import _set_mcp_manager, get_mcp_tool_help
 
         _set_mcp_manager(None)
 
@@ -195,7 +193,7 @@ class TestMCPTools:
 
     def test_mcp_health_check_no_manager(self):
         """Test mcp_health_check when manager is not initialized."""
-        from src.tools.mcp_tools import mcp_health_check, _set_mcp_manager
+        from src.tools.mcp_tools import _set_mcp_manager, mcp_health_check
 
         _set_mcp_manager(None)
 
@@ -208,7 +206,7 @@ class TestMCPToolsMocked:
 
     def test_list_mcp_servers_with_mock_manager(self):
         """Test list_mcp_servers with a mocked manager."""
-        from src.tools.mcp_tools import list_mcp_servers, _set_mcp_manager
+        from src.tools.mcp_tools import _set_mcp_manager, list_mcp_servers
 
         # Create mock manager
         mock_manager = MagicMock()
@@ -245,8 +243,8 @@ class TestMCPToolsMocked:
 
     def test_list_mcp_tools_with_mock_manager(self):
         """Test list_mcp_tools with mocked tools."""
-        from src.tools.mcp_tools import list_mcp_tools, _set_mcp_manager
         from src.mcp_client import MCPTool
+        from src.tools.mcp_tools import _set_mcp_manager, list_mcp_tools
 
         mock_tool = MCPTool(
             name="create_issue",
@@ -336,6 +334,7 @@ class TestMCPClientManagerConfigLoading:
     def test_load_config_filters_disabled_servers(self):
         """Test that disabled servers are filtered out."""
         import tempfile
+
         from src.mcp_client import MCPClientManager
 
         # Create temp config with one enabled, one disabled

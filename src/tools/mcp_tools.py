@@ -32,8 +32,6 @@ def list_mcp_servers() -> str:
          2. database (http) - Disconnected ✗ - Error: Connection refused"
     """
     try:
-        from src.mcp_client import MCPClientManager
-
         # Try to get the global manager instance
         # This will be set by the agent during initialization
         manager = _get_mcp_manager()
@@ -235,7 +233,7 @@ def mcp_health_check() -> str:
         total = len(servers)
 
         lines = [
-            f"🏥 MCP Health Check",
+            "🏥 MCP Health Check",
             f"   Status: {connected}/{total} servers connected",
             "",
         ]

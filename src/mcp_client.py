@@ -14,11 +14,11 @@ This module implements:
 import asyncio
 import json
 import os
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
-from dataclasses import dataclass, field
 
-from src.config import settings, MCPServerConfig
+from src.config import MCPServerConfig, settings
 
 
 @dataclass

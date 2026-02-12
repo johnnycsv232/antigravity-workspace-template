@@ -1,41 +1,48 @@
-# 📚 Antigravity Workspace Documentation
+# 📚 IronClad Documentation
 
-Welcome to the comprehensive documentation for the **Antigravity Workspace Template** — a production-grade starter kit for building autonomous AI agents on Google Antigravity.
+Welcome to the comprehensive documentation for **IronClad** — a production-grade starter kit for building autonomous AI agents on Google Antigravity.
 
 ## 🎯 Quick Navigation
 
 ### Getting Started
+
 - **[Quick Start Guide](QUICK_START.md)** — Installation, local development, and first steps
 - **[Project Philosophy](PHILOSOPHY.md)** — Core concepts and Artifact-First protocol
 
 ### Core Features
+
 - **[Zero-Config Features](ZERO_CONFIG.md)** — Automatic tool and context discovery
 - **[MCP Integration](MCP_INTEGRATION.md)** — Connect to external tools and data sources
 - **[Multi-Agent Swarm](SWARM_PROTOCOL.md)** — Orchestrate specialist agents for complex tasks
 
 ### Planning & Vision
+
 - **[Development Roadmap](ROADMAP.md)** — Current progress and future plans through Phase 9
 
 ## 🌟 Key Features
 
 ### 🧠 Infinite Memory Engine
+
 Recursive summarization automatically compresses history—context limits are a thing of the past.
 
 ### 🛠️ Universal Tool Protocol
+
 Generic ReAct pattern. Just register any Python function in `src/tools/`, and the Agent learns to use it automatically.
 
 ### ⚡️ Gemini Native
+
 Optimized for Gemini 2.0 Flash's speed and function calling capabilities.
 
 ### 🔌 External LLM Support
+
 Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (supports OpenAI, Azure, Ollama).
 
 ## 🚀 Common Tasks
 
-### I want to...
+### I want to
 
 | Task | Documentation |
-|------|----------------|
+| --- | --- |
 | Get started with the agent | [Quick Start](QUICK_START.md) |
 | Build a custom tool | [Zero-Config Features](ZERO_CONFIG.md) |
 | Connect to an MCP server | [MCP Integration](MCP_INTEGRATION.md) |
@@ -45,7 +52,7 @@ Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (support
 
 ## 📊 Project Structure
 
-```
+```text
 .
 ├── .antigravity/        # 🛸 Antigravity config/rules
 ├── .context/            # 📚 Knowledge base auto-injected
@@ -73,21 +80,25 @@ Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (support
 ## 🎓 Documentation by Role
 
 ### For Developers
+
 1. Start with [Quick Start](QUICK_START.md)
 2. Learn [Zero-Config tool discovery](ZERO_CONFIG.md)
 3. Explore the [swarm protocol](SWARM_PROTOCOL.md)
 
 ### For DevOps/Deployment
+
 1. Read [Quick Start](QUICK_START.md) Docker section
 2. Check [Development Roadmap](ROADMAP.md) Phase 9 (Enterprise Core)
 3. Configure MCP servers in [MCP Integration](MCP_INTEGRATION.md)
 
 ### For Architects
+
 1. Understand [Project Philosophy](PHILOSOPHY.md)
 2. Study [Multi-Agent Swarm](SWARM_PROTOCOL.md) architecture
 3. Review [Development Roadmap](ROADMAP.md) vision
 
 ### For Contributors
+
 1. Read [Project Philosophy](PHILOSOPHY.md)
 2. Check [Development Roadmap](ROADMAP.md) Phase 9
 3. Open an issue to propose ideas
@@ -122,16 +133,20 @@ A: Create files in `.context/` directory. They're automatically loaded! See [Zer
 We welcome contributions at all levels:
 
 ### Report Issues
+
 Found a bug? [Open an issue](https://github.com/study8677/antigravity-workspace-template/issues)
 
 ### Suggest Ideas
+
 Have an architectural idea? Ideas are contributions too!  
 [Propose your thought](https://github.com/study8677/antigravity-workspace-template/issues/new)
 
 ### Submit Code
+
 Ready to code? Check the [Roadmap](ROADMAP.md) Phase 9 for open areas.
 
 ### Improve Docs
+
 See a typo or unclear section? Submit a PR to improve the docs!
 
 ## 📞 Support

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "MCP Servers Configuration for IronClad / Antigravity Agent",
+  "description": "MCP Servers Configuration for IronClad Agent",
   "servers": [
     {
       "name": "filesystem",

@@ -6,6 +6,7 @@ determining which specialist agents to involve, and synthesizing final results.
 """
 
 from typing import Dict, List
+
 from src.agents.base_agent import BaseAgent
 
 
@@ -118,7 +119,7 @@ You may delegate to multiple agents in sequence or parallel."""
         Returns:
             Final synthesized response.
         """
-        synthesis_prompt = f"""Synthesize a final response based on the following agent outputs:
+        synthesis_prompt = """Synthesize a final response based on the following agent outputs:
 
 """
         for i, (delegation, result) in enumerate(zip(delegations, results), 1):

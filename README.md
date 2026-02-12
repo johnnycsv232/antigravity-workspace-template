@@ -1,6 +1,6 @@
-# 🪐 Google Antigravity Workspace Template
+# 🛡️ IronClad
 
-**Production-grade starter kit for autonomous AI agents on Google Antigravity.**
+**AI-powered missed-call capture system for home-service contractors.**
 
 Language: [English](/docs/en/) | [中文（仓库主页）](README_CN.md) | [中文文档](/docs/zh/) | [Español](/docs/es/)
 
@@ -44,6 +44,7 @@ So I built this project: **Antigravity Workspace Template**.
 ### Automated Installation (Recommended)
 
 **Linux / macOS:**
+
 ```bash
 # 1. Clone the template
 git clone https://github.com/study8677/antigravity-workspace-template.git my-project
@@ -62,6 +63,7 @@ python src/agent.py
 ```
 
 **Windows:**
+
 ```cmd
 # 1. Clone the template
 git clone https://github.com/study8677/antigravity-workspace-template.git my-project
@@ -116,7 +118,7 @@ This is **not** another LangChain wrapper. It's a minimal, transparent workspace
 ## 🚀 Key Features
 
 | Feature | Description |
-|---------|-------------|
+| --- | --- |
 | 🧠 **Infinite Memory** | Recursive summarization compresses context automatically |
 | 🛠️ **Universal Tools** | Drop Python functions in `src/tools/` → auto-discovered |
 | 📚 **Auto Context** | Add files to `.context/` → auto-injected into prompts |
@@ -139,7 +141,7 @@ This is **not** another LangChain wrapper. It's a minimal, transparent workspace
 
 ## 🏗️ Project Structure
 
-```
+```text
 src/
 ├── agent.py           # Main agent loop
 ├── memory.py          # JSON memory manager
@@ -196,6 +198,7 @@ result = swarm.execute("Build and review a calculator")
 ```
 
 The swarm automatically:
+
 - 📤 Routes to Coder, Reviewer, Researcher agents
 - 🧩 Synthesizes results
 - 📂 Saves artifacts
@@ -218,6 +221,7 @@ See [Roadmap](docs/en/ROADMAP.md) for details.
 ## 🤝 Contributing
 
 Ideas are contributions too! Open an [issue](https://github.com/study8677/antigravity-workspace-template/issues) to:
+
 - Report bugs
 - Suggest features
 - Propose architecture (Phase 9)

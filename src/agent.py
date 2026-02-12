@@ -1,10 +1,9 @@
+import importlib.util
+import inspect
 import json
-import time
 import os
 import sys
-import asyncio
-import inspect
-import importlib.util
+import time
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
@@ -13,11 +12,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from google import genai
+from google import genai  # noqa: E402
 
-from src.config import settings
-from src.memory import MemoryManager
-from src.tools.openai_proxy import call_openai_chat
+from src.config import settings  # noqa: E402
+from src.memory import MemoryManager  # noqa: E402
+from src.tools.openai_proxy import call_openai_chat  # noqa: E402
 
 
 class GeminiAgent:

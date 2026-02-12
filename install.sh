@@ -4,7 +4,7 @@ set -e
 # IronClad / Antigravity Workspace — Installer for Linux/macOS
 # Sets up the development environment automatically
 
-echo "🛡️ IronClad × Antigravity Workspace — Installer"
+echo "🛡️ IronClad Installer"
 echo "================================================="
 echo ""
 

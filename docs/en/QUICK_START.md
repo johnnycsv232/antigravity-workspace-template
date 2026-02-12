@@ -1,6 +1,6 @@
 # 🚀 Quick Start Guide
 
-Get up and running with the Antigravity Workspace Template in minutes.
+Get up and running with **IronClad** in minutes.
 
 ## 📋 Prerequisites
 
@@ -11,27 +11,32 @@ Get up and running with the Antigravity Workspace Template in minutes.
 ## 🏃 Local Development
 
 ### 1. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2. Run the Agent
+
 ```bash
 python src/agent.py
 ```
 
 The agent will start and wait for your commands. It automatically:
+
 - 🧠 Loads memory from `agent_memory.json`
 - 🛠️ Discovers tools in `src/tools/`
 - 📚 Ingests context from `.context/`
 
 ### 3. Example Usage
+
 ```bash
 # In your terminal or IDE:
 > "Build a Python function to calculate Fibonacci numbers"
 ```
 
 The agent will:
+
 1. 📄 Create a plan in `artifacts/plan_[id].md`
 2. 💻 Write code in appropriate directories
 3. ✅ Provide evidence logs
@@ -39,11 +44,13 @@ The agent will:
 ## 🐳 Docker Deployment
 
 ### Build & Run
+
 ```bash
 docker-compose up --build
 ```
 
 This will:
+
 - Install all dependencies
 - Start the agent in a containerized environment
 - Mount your workspace for live code editing
@@ -51,7 +58,9 @@ This will:
 Access the agent via the exposed interface.
 
 ### Customizing Docker
+
 Edit `docker-compose.yml` to:
+
 - Change environment variables
 - Mount additional volumes
 - Expose different ports
@@ -59,6 +68,7 @@ Edit `docker-compose.yml` to:
 ## 🔧 Configuration
 
 ### Environment Variables
+
 Create a `.env` file:
 
 ```bash
@@ -75,6 +85,7 @@ ARTIFACTS_DIR=artifacts
 ```
 
 ### Memory Management
+
 The agent automatically manages memory via `agent_memory.json`. To reset:
 
 ```bash
@@ -84,7 +95,7 @@ python src/agent.py
 
 ## 📁 Project Structure Reference
 
-```
+```text
 ├── src/
 │   ├── agent.py         # Main agent loop
 │   ├── config.py        # Configuration management
@@ -114,6 +125,7 @@ pytest --cov=src tests/
 ## 🐛 Troubleshooting
 
 ### Agent doesn't start
+
 ```bash
 # Check if dependencies are installed
 pip list | grep -i google-generativeai
@@ -123,6 +135,7 @@ echo $GEMINI_API_KEY
 ```
 
 ### Tools not loading
+
 ```bash
 # Verify src/tools/ has valid Python files
 ls -la src/tools/
@@ -132,6 +145,7 @@ python -m py_compile src/tools/*.py
 ```
 
 ### Memory issues
+
 ```bash
 # Check memory file
 cat agent_memory.json | python -m json.tool

@@ -18,7 +18,7 @@ def greet_user(name: str) -> str:
     Returns:
         A friendly greeting message.
     """
-    return f"Hello, {name}! 🎉 Welcome to the Antigravity Agent with dynamic tool loading!"
+    return f"Hello, {name}! 🎉 Welcome to the IronClad Agent with dynamic tool loading!"
 
 
 def reverse_text(text: str) -> str:

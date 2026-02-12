@@ -1,4 +1,3 @@
-import requests
 import ast
 import operator as _operator
 
@@ -24,19 +23,20 @@ def web_search(query: str) -> str:
     # 4. Parse the JSON response to extract relevant snippets.
     # For now, I will return a placeholder string.
     # </thought>
-    
+
     print(f"DEBUG: Performing web search for '{query}'")
-    
+
     # Mock response
     results = f"Search results for: {query}\n1. Result A for {query}...\n2. Result B for {query}..."
     return results
 
+
 def get_stock_price(ticker: str) -> float:
     """Retrieves the current stock price for a given ticker.
-    
+
     Args:
         ticker: The stock ticker symbol (e.g., 'GOOGL').
-        
+
     Returns:
         The current price as a float.
     """
@@ -44,9 +44,9 @@ def get_stock_price(ticker: str) -> float:
     # This tool would typically connect to a financial data provider.
     # I need to ensure the ticker is uppercase.
     # </thought>
-    
+
     print(f"DEBUG: Getting stock price for '{ticker}'")
-    return 150.00 # Mock price
+    return 150.00  # Mock price
 
 
 def calculate_math(expression: str) -> float:

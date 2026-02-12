@@ -5,7 +5,7 @@ REM Sets up the development environment automatically
 setlocal enabledelayedexpansion
 
 echo.
-echo 🛡️ IronClad × Antigravity Workspace — Installer
+echo 🛡️ IronClad Installer
 echo ================================================
 echo.
 

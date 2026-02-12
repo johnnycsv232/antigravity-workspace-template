@@ -5,7 +5,8 @@ completion endpoint (including OpenAI, Azure OpenAI, or self-hosted
 providers like Ollama/Llama.cpp that expose the same API).
 """
 
-from typing import Optional, List, Dict, Any
+from typing import Any, Dict, List, Optional
+
 import requests
 
 from src.config import settings
