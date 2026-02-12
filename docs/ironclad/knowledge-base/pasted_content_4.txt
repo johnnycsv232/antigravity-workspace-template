@@ -1,0 +1,1553 @@
+
+/
+
+Collaborate
+
+Share
+/internet-skill-finder /skill-creator 
+Max
+I'll read both the internet-skill-finder and skill-creator skills to understand what they offer, then help you with your request.
+Max
+I see you've invoked both /internet-skill-finder and /skill-creator. Before I proceed, let me clarify what I'll do:
+Internet Skill Finder — I'll search the 7 verified GitHub repositories for existing Agent Skills that could be useful for the IronClad project (e.g., skills related to web scraping, CRM automation, email campaigns, payment processing, n8n workflows, etc.)
+Skill Creator — If there are gaps where no existing skill covers IronClad's needs, I can create custom skills.
+Let me start by searching for skills relevant to IronClad's core domains. Do you have specific skill areas you'd like me to prioritize, or should I search broadly across IronClad's key needs (missed-call capture, HVAC/contractor outreach, lead generation, n8n automation, Stripe billing, etc.)?
+pasted_content.txt
+Text · 82.17 KB
+pasted_content_2.txt
+Text · 64.23 KB
+Max
+Let me review the files you've shared to understand the full context before searching for skills and creating custom ones.
+Reviewing the context, I understand the project involves finding existing agent skills from verified repositories for IronClad, then creating custom skills if needed. Next, I will analyze relevant skills from GitHub and the skill-creator workflow to identify gaps for targeted automation.
+
+I discovered detailed tech stack and website content for IronClad, confirming the need for verified, custom agent skills. Next, I will identify relevant skills from these sources.
+
+Currently focusing on finding verified GitHub repositories with relevant skills for IronClad’s full-stack needs to identify gaps and develop custom skills in later phases.
+
+Max
+I've reviewed both the master system prompt and the build orchestration doc. Now I'll search the 7 verified skill repositories across all of IronClad's key domains — automation, payments, web development, scraping, CRM, email, voice/SMS, and more. Starting the search now.
+Verified repositories include skills in security, debugging, web testing, and skill creation. Next, will focus on identifying relevant full-stack skills like Next.js, Stripe, Twilio, and web scraping.
+
+I found relevant verified GitHub skills in areas like Next.js, Stripe, Twilio, web scraping, testing, security, and deployment. Next, I'll analyze gaps and create custom skills if needed.
+
+Discovered verified skills such as invoice organization, payment escrow, Google Analytics automation, and PostgreSQL support. Next, will analyze gaps and develop custom skills.
+
+Found deep-dive skills on Stripe automation, web app testing, debugging, and security practices. Next, will analyze gaps and develop custom skills for IronClad needs.
+
+I'm analyzing verified GitHub repos for skills like Slack and Mailchimp automation, and CRM tools. Next, I'll identify gaps and plan custom IronClad skills accordingly.
+
+Analyzing verified GitHub skills, I found automation tools for Google Analytics and invoice organization. Next, I'll identify further gaps for custom IronClad skills.
+
+Max
+I've completed the search across all 7 verified repositories. Here's what I found:
+Existing skills that match IronClad's needs: 12 skills found (Stripe, HubSpot, Mailchimp, Vercel, Slack, Invoice Organizer, Postgres, Google Analytics, Webapp Testing, Systematic Debugging, OWASP Security, Varlock)
+Critical gaps with NO existing skill: 8 major gaps identified — the IronClad-specific workflows (Stitch Loop, Compatibility Validator, Conversion Psychology Engine, Twilio integration, n8n workflows, Supabase full-stack, Prospect Builder, and Brand/SSOT Enforcer).
+I'll now design and create custom skills to fill these gaps. I'll focus on the most impactful ones that encode IronClad's proprietary processes from your system prompt and orchestration doc.
+Reviewed workflow and output pattern references; these guide designing complex, conditional, and consistent skills aligned with IronClad's proprietary workflows for impactful custom development.
+
+I successfully initialized five IronClad skills and cleaned up example files. Next, I will review and finalize the SKILL.md file for the ironclad-stitch-loop to ensure clear documentation and proper structure.
+
+Finished cleaning existing SKILL.md files, preparing to write new, clearer documentation for each IronClad skill. Will now proceed with finalizing the documentation structure.
+
+I've completed initial skill documentation files and templates. Next, I will review relevant GitHub repositories to find and assess skills for IronClad's full-stack requirements.
+
+I documented skills for several IronClad modules and cleaned up unnecessary directories, progressing towards verifying and integrating relevant GitHub-repo skills for full-stack development.
+
+I verified the directory structure of five custom skills, confirming they include key documentation files. Next, I'll review their content for integration readiness.
+
+I validated all five custom skills, fixing the description in the compatibility-validator to remove angle brackets, and re-validated it successfully. Will proceed with next steps.
+
+Max
+I have completed the skill analysis and custom skill creation process. The attached report details the findings, and the 5 custom skills I built are also attached, ready for you to import into your Manus workspace.
+These skills encode the core proprietary logic of the IronClad project, transforming the agent into a specialized AI co-founder ready to execute your vision.
+
+
+
+
+
+IronClad AI Agent Skill Analysis & Custom Build Report
+Date: February 11, 2026
+Author: Manus AI
+1. Introduction
+Per your request to leverage /internet-skill-finder and /skill-creator, I have completed a comprehensive analysis of the Agent Skill ecosystem in the context of the IronClad project. This report details the process, findings, and the custom skills built to create a specialized AI Founder Agent tailored to IronClad's unique operational methodologies.
+The process followed these steps:
+Context Ingestion: Analyzed the Master System Prompt and Build Orchestration documents to understand IronClad's specific needs, mandated tech stack, and proprietary workflows.
+Broad Skill Search: Queried 7 verified GitHub skill repositories using over 20 keywords relevant to IronClad's domains (e.g., n8n, stripe, twilio, nextjs, supabase, hubspot, scraping).
+Gap Analysis: Compared the functionality of existing public skills against the strict requirements of the IronClad project, identifying critical gaps where no off-the-shelf skill would suffice.
+Custom Skill Creation: Designed, built, and validated 5 new, custom Agent Skills that encode IronClad's core proprietary processes, transforming the general-purpose agent into a specialized AI co-founder.
+2. Existing Skills Analysis
+The search yielded several potentially useful skills, primarily from the ComposioHQ/awesome-claude-skills repository. However, a significant limitation is that most of these skills rely on an intermediary MCP server (Rube), which may not align with IronClad's goal of direct API control and minimal dependencies.
+Below is a summary of the most relevant public skills and their applicability to IronClad.
+IronClad Need
+Existing Public Skill
+Fit
+Analysis & Recommendation
+Stripe Billing
+stripe-automation
+Partial
+Provides basic customer, subscription, and invoice management via an MCP server. GAP: Lacks direct Stripe API control and the specific logic for IronClad's setup fee + recurring plan structure.
+HubSpot CRM
+hubspot-automation
+Partial
+Manages contacts, deals, and tickets via an MCP server. GAP: Does not include the specific sales pipeline automation or prospect scoring logic required.
+Mailchimp
+mailchimp-automation
+Partial
+Manages campaigns and audiences via an MCP server. GAP: Lacks templates for IronClad's specific cold outreach and onboarding sequences.
+Vercel Deploy
+vercel-automation
+Good
+Provides tools for managing deployments, logs, and domains. Can be used for monitoring build status.
+Slack Notify
+slack-automation
+Partial
+Sends messages via an MCP server. GAP: Does not include the formatted lead notification blocks specified in the build plan.
+Web Testing
+webapp-testing
+Good
+A solid toolkit for Playwright-based testing of the Next.
+Task completed
+How was this result?
+Ready to keep your Pro experience? Upgrade now to access your full plan credits — and receive 1,000 bonus credits for upgrading early.
+
+
+Upgrade
+Suggested follow-ups
+please take care /github-gem-seeker /ironclad-twilio-engine /ironclad-ssot-enforcer /ironclad-conversion-engine /ironclad-conversion-engine /ironclad-stitch-loop /ironclad-conversion-engine please 
+
+AirtableFirecrawlGitHub
++14
+5
+
+pasted_content_2.txt
+<aside>
+🏗️
+
+**This is the complete build orchestration for IronClad.** Copy the sections below into the Manus project instructions AFTER the main system prompt. This gives the agent the tech stack direction, Twilio config, prompt chain for backend build, landing page copy, SVG specs, and scaffold deliverables.
+
+</aside>
+
+<aside>
+🚨
+
+**CRITICAL: NO HARDCODED VERSIONS. NO OVER-ENGINEERING.**
+This orchestration doc uses framework/library NAMES but does NOT pin versions. The agent MUST research the current stable release of every dependency at build time via official docs. Do NOT assume "Next.js 14" or any other version — check [nextjs.org/docs](http://nextjs.org/docs), [supabase.com/docs](http://supabase.com/docs), [prisma.io/docs](http://prisma.io/docs), etc. for the latest stable before writing a single line of code. Every integration pair must be verified compatible via official guides or GitHub issues search. Edge cases must be researched. The founder reviews the compatibility report BEFORE any code is written.
+
+</aside>
+
+---
+
+## 🧩 Google Stitch MCP → Skill → API Design Loop
+
+```jsx
+=== GOOGLE STITCH MCP → SKILL → API LOOP (FRONTEND DESIGN ENGINE) ===
+
+The IronClad frontend MUST be designed using the Google Stitch MCP pipeline.
+Stitch is Google's AI-powered UI generation engine exposed via the Model Context Protocol.
+It generates production-ready screens from prompts — not mockups, not wireframes, REAL UI.
+
+This is NOT optional. Every page, component, and screen goes through this loop.
+
+--- HOW THE LOOP WORKS ---
+
+STEP 1: ENHANCE PROMPT (Skill: enhance-prompt)
+  Before generating ANY screen, run your prompt through the enhance-prompt skill.
+  This transforms vague UI ideas into polished, Stitch-optimized prompts.
+  It adds UI/UX keywords, injects design system context, and structures output
+  for better generation results.
+  INPUT: rough description (e.g. "IronClad pricing page with 3 tiers")
+  OUTPUT: detailed, keyword-rich, design-system-aware generation prompt
+
+STEP 2: GENERATE SCREENS (Stitch MCP Server)
+  Feed the enhanced prompt to the Stitch MCP server.
+  MCP Server URL: https://stitch.googleapis.com/mcp
+  Auth: X-Goog-Api-Key header with your GCP API key
+  Stitch generates complete, pixel-perfect UI screens.
+  It understands: layout, typography, color systems, spacing, responsive breakpoints,
+  component hierarchy, interaction patterns, and accessibility.
+
+STEP 3: STITCH-LOOP (Skill: stitch-loop)
+  For multi-page generation, use the stitch-loop skill.
+  It generates a COMPLETE multi-page website from a single prompt.
+  Automated file organization and validation included.
+  Use this for the full IronClad marketing site:
+    → Homepage (hero, stats, how it works, features, pricing, ROI calc, FAQ, CTA)
+    → Pricing page (detailed comparison)
+    → About page (founder story, mission)
+    → Dashboard shell (lead overview, stats cards)
+    → Onboarding flow screens
+
+STEP 4: VALIDATE & ITERATE
+  After generation, run the Tech Stack Compatibility Check (below).
+  If any component conflicts with the mandated stack → regenerate with constraints.
+  If the design doesn't match brand specs → re-enhance prompt with brand tokens.
+  Loop until: generated output + mandated stack + brand identity = perfect alignment.
+
+--- THE LOOP ---
+  ENHANCE → GENERATE → VALIDATE → (if fail) → RE-ENHANCE → REGENERATE → RE-VALIDATE
+  Keep looping until ALL checks pass. Do NOT ship a screen that fails validation.
+
+STITCH MCP CONFIGURATION:
+  Add to your MCP client settings (Cursor, Claude Code, Antigravity, Gemini CLI):
+  {
+    "mcpServers": {
+      "stitch": {
+        "serverUrl": "https://stitch.googleapis.com/mcp",
+        "headers": {
+          "X-Goog-Api-Key": "YOUR-GCP-API-KEY"
+        }
+      }
+    }
+  }
+
+STITCH SETUP:
+  1. Install Google Cloud CLI (gcloud)
+  2. Authenticate: gcloud auth application-default login
+  3. Select GCP project with Stitch API enabled
+  4. Configure IAM permissions for Stitch
+  5. Generate API key
+  6. Add MCP config to your coding agent
+  CLI helper: npx stitch-mcp (guides you through all steps)
+
+STITCH PROMPT ENGINEERING FOR IRONCLAD:
+  Every Stitch prompt MUST include:
+  → Brand tokens: Navy #1B2A4A, Gold #D4A843, White #FFFFFF, Gray #F5F5F5
+  → Font: Inter 700 headings, system-ui 400/500 body
+  → Component lib: shadcn/ui (specify: use shadcn/ui Button, Card, etc.)
+  → Framework: Next.js (latest stable App Router) + Tailwind CSS
+  → Tone: "professional, trustworthy, bold, contractor-friendly"
+  → Shield motif: include shield iconography in hero and CTA sections
+  → Mobile-first: always specify responsive behavior
+  Example enhanced prompt:
+  "Generate a SaaS landing page hero section for IronClad, a missed-call capture
+  service for home-service contractors. Navy (#1B2A4A) background with gold (#D4A843)
+  accent CTA buttons. Inter font, bold headline 'Stop Losing Jobs to Voicemail'.
+  Subtext in white. Two CTAs: primary gold button 'Start Capturing Leads', secondary
+  outline white button 'Free Response-Time Analysis'. Trust badge below: 'No contracts.
+  48-hour setup. Cancel anytime.' Phone mockup on right showing SMS conversation.
+  Use shadcn/ui Button and Card components. Tailwind CSS utility classes. Responsive:
+  stack vertically on mobile. Framer Motion fade-in animation on scroll."
+```
+
+---
+
+## 🔄 Stitch Loop Checklist (Mandatory)
+
+<aside>
+🔄
+
+**STITCH LOOP — MANDATORY FOR ALL UI GENERATION. NO EXCEPTIONS.**
+Every page, component, and screen goes through this loop. "Prompt roulette" is banned.
+
+</aside>
+
+| **Step** | **Action** | **Tool / Skill** | **Output** | **Status** |
+| --- | --- | --- | --- | --- |
+| 1 | **Enhance prompt** — turn rough UI idea into Stitch-ready spec with brand tokens, component lib, responsive rules | `enhance-prompt` skill | Stitch-optimized prompt | ⬜ |
+| 2 | **Stitch generate** — feed enhanced prompt to MCP server, receive production-ready screen | Stitch MCP Server | Generated UI code | ⬜ |
+| 3 | **Validation Engine** — run 12-point pass/fail matrix (framework, styling, components, TS, deploy, DB, auth, payments, voice, monitoring, Lighthouse, bundle) | Validation Engine (below) | 12/12 PASS or fail list | ⬜ |
+| 4 | **If fail →** re-enhance prompt with failure reasons → regenerate → re-validate. Loop until 12/12 PASS. | Loop steps 1–3 | Ship-ready component | ⬜ |
+
+**Rule:** If a component ships without completing this loop, it is a build defect. Roll back and re-run.
+
+---
+
+## 🔐 Tech Stack & Skill Compatibility Validation Engine
+
+```jsx
+=== TECH STACK & SKILL COMPATIBILITY VALIDATION ENGINE ===
+
+Before using ANY skill, API, or generated output in the IronClad build,
+run it through this validation engine. This is NOT optional.
+The agent must PROVE compatibility before integrating anything.
+
+--- VALIDATION MATRIX ---
+
+For EVERY skill, API, or generated component, answer ALL of these:
+
+  1. FRAMEWORK COMPAT: Does it output code compatible with the CURRENT STABLE Next.js App Router?
+     → Must use: React Server Components where possible
+     → Must support: 'use client' directive for interactive components
+     → Must NOT require: Pages Router, getServerSideProps, getStaticProps
+     → PASS/FAIL
+
+  2. STYLING COMPAT: Does it use Tailwind CSS utility classes?
+     → Must NOT output: raw CSS files, styled-components, CSS modules, Emotion
+     → Must be compatible with: shadcn/ui component patterns
+     → Must respect: the IronClad design tokens (colors, fonts, spacing)
+     → PASS/FAIL
+
+  3. COMPONENT COMPAT: Does it use or integrate with shadcn/ui?
+     → Must use: shadcn/ui primitives (Button, Card, Dialog, etc.) where applicable
+     → Must NOT introduce: Material UI, Chakra UI, Ant Design, Bootstrap, or any
+       other component library that conflicts with shadcn/ui
+     → PASS/FAIL
+
+  4. TYPE SAFETY: Does it output TypeScript?
+     → Must use: TypeScript (.tsx/.ts), not JavaScript (.jsx/.js)
+     → Must include: proper type annotations, interfaces, Zod schemas
+     → PASS/FAIL
+
+  5. DEPLOYMENT COMPAT: Will it deploy to Vercel without modification?
+     → Must support: serverless function size limits (<50MB)
+     → Must NOT require: custom server, Docker, long-running processes
+     → Must work with: Vercel Edge Runtime or Node.js runtime
+     → PASS/FAIL
+
+  6. DATABASE COMPAT: Does it work with Supabase + Prisma?
+     → Must use: Prisma client for DB queries OR Supabase JS client
+     → Must NOT require: MongoDB, Firebase, DynamoDB, or other non-Postgres DBs
+     → Must respect: the Prisma schema defined in Prompt 2
+     → PASS/FAIL
+
+  7. AUTH COMPAT: Does it work with Supabase Auth?
+     → Must use: @supabase/ssr for auth in Next.js
+     → Must NOT require: NextAuth, Clerk, Auth0, or Firebase Auth
+     → PASS/FAIL
+
+  8. PAYMENT COMPAT: Does it work with Stripe?
+     → Must use: @stripe/stripe-js (client) + stripe (server)
+     → Must support: Checkout Sessions, Billing Portal, Webhooks
+     → Must NOT require: PayPal SDK, Paddle, Lemon Squeezy as PRIMARY
+     → PASS/FAIL
+
+  9. VOICE/SMS COMPAT: Does it work with Twilio?
+     → Must use: twilio SDK for Node.js
+     → Must support: TwiML responses from Next.js API routes
+     → Must handle: webhook signature validation
+     → PASS/FAIL
+
+  10. MONITORING COMPAT: Does it work with Sentry + PostHog?
+      → Must support: @sentry/nextjs error boundary wrapping
+      → Must support: posthog-js event tracking
+      → PASS/FAIL
+
+  11. PERFORMANCE: Does it meet Lighthouse targets?
+      → Performance: 95+
+      → Accessibility: 100
+      → Best Practices: 95+
+      → SEO: 100
+      → PASS/FAIL
+
+  12. BUNDLE SIZE: Does it keep the build lean?
+      → Must NOT add dependencies > 100KB gzipped without justification
+      → Must support: tree-shaking and code splitting
+      → PASS/FAIL
+
+SCORING: ALL 12 must PASS. If ANY fails → fix or reject the skill/output.
+Do NOT proceed with integration until 12/12 PASS.
+
+VALIDATION LOG FORMAT:
+  SKILL/API: [name]
+  SOURCE: [marketplace URL or MCP server]
+  VALIDATION:
+    1. Framework:   ✅ PASS / ❌ FAIL (reason)
+    2. Styling:     ✅ PASS / ❌ FAIL (reason)
+    3. Components:  ✅ PASS / ❌ FAIL (reason)
+    4. TypeScript:  ✅ PASS / ❌ FAIL (reason)
+    5. Deployment:  ✅ PASS / ❌ FAIL (reason)
+    6. Database:    ✅ PASS / ❌ FAIL (reason)
+    7. Auth:        ✅ PASS / ❌ FAIL (reason)
+    8. Payments:    ✅ PASS / ❌ FAIL (reason)
+    9. Voice/SMS:   ✅ PASS / ❌ FAIL (reason)
+    10. Monitoring: ✅ PASS / ❌ FAIL (reason)
+    11. Lighthouse: ✅ PASS / ❌ FAIL (reason)
+    12. Bundle:    ✅ PASS / ❌ FAIL (reason)
+  RESULT: [12/12 PASS → INTEGRATE] or [X/12 → FIX or REJECT]
+
+Log EVERY validation. No exceptions. This is the quality gate.
+```
+
+---
+
+## 🔍 Agent Skills Finder — Full Skill Category Search
+
+```jsx
+=== AGENT SKILLS FINDER (USE THIS BEFORE EVERY MAJOR TASK) ===
+
+Before starting ANY project task, search the Manus Agent Skills Marketplace for relevant
+pre-built skills. This is NOT optional. Skills = pre-built expert workflows that save hours.
+
+HOW TO USE:
+1. Type /skills in chat or browse: https://awesome.manus.space/?category=skills
+   and the Skills Marketplace at https://skillsmp.com/
+2. Search for skills matching the current task domain
+3. Import and compose relevant skills BEFORE building anything from scratch
+4. After completing a successful workflow, SAVE IT as a new Skill ("Build a Skill with Manus")
+
+SKILL CATEGORIES — SEARCH ALL OF THESE (IronClad needs every domain):
+  🎨 UI / FRONTEND SKILLS:
+  → "Stitch UI Generation" / "Google Stitch" — AI screen generation via MCP
+  → "Website Builder" / "Next.js Scaffold" — coded site scaffold (NOT no-code)
+  → "Landing Page Design" / "SaaS Landing Page" — conversion-optimized pages
+  → "Responsive Design" / "Mobile-First" — responsive layout generation
+  → "Component Library" / "shadcn/ui" — pre-built UI component patterns
+  → "Animation" / "Framer Motion" — micro-interactions, scroll animations
+  → "Form Builder" / "Multi-Step Form" — intake forms, checkout flows
+  → "Dashboard UI" / "Admin Panel" — client portal and analytics dashboards
+  → "Dark Mode" / "Theme System" — design system with theme support
+  → "Accessibility" / "WCAG" — a11y compliance and screen reader support
+  ⚙️ BACKEND / API SKILLS:
+  → "Next.js API Routes" / "Serverless Functions" — API endpoint patterns
+  → "Supabase" / "Database Setup" — schema, auth, realtime, edge functions
+  → "Prisma ORM" / "Database Migrations" — type-safe DB layer
+  → "Webhook Handler" / "Event Processing" — Twilio/Stripe webhook patterns
+  → "Authentication" / "Supabase Auth" — magic link, OAuth, session management
+  → "File Upload" / "Storage" — Supabase Storage integration
+  → "Caching" / "Redis" — response caching for performance
+  → "Rate Limiting" / "API Security" — protect endpoints from abuse
+  → "Background Jobs" / "Queue Processing" — async task handling
+  → "Error Handling" / "Retry Logic" — resilient API patterns
+  📞 VOICE / SMS / TELEPHONY SKILLS:
+  → "Twilio SMS" / "Voice API" / "Telephony" — missed-call text-back flow
+  → "Twilio Studio" / "IVR Builder" — visual call flow design
+  → "Call Forwarding" / "Call Routing" — dynamic routing logic
+  → "SMS Conversation" / "Chatbot" — multi-turn text qualification
+  → "Voice Transcription" / "Speech-to-Text" — call recording analysis
+  → "TCPA Compliance" / "SMS Opt-In" — legal compliance for texting
+  💳 PAYMENT / BILLING SKILLS:
+  → "Stripe Billing" / "Payments" — subscription, checkout, portal
+  → "Stripe Checkout" / "Payment Links" — embeddable payment flows
+  → "Subscription Management" / "Recurring Billing" — plan upgrades, downgrades
+  → "Invoice Generator" / "Billing Automation" — automated invoicing
+  → "Dunning" / "Failed Payment Recovery" — churn prevention via payment retry
+  → "Revenue Analytics" / "MRR Tracking" — financial dashboard skills
+  📈 MARKETING / CONVERSION / PSYCHOLOGY SKILLS:
+  → "Conversion Rate Optimization" / "CRO" — A/B testing, funnel optimization
+  → "Landing Page Copywriting" / "Sales Copy" — persuasion-focused copy
+  → "SEO Analysis" / "Local SEO" — keyword research for Minneapolis contractors
+  → "Social Proof" / "Testimonial Display" — trust-building UI patterns
+  → "Urgency & Scarcity" / "FOMO" — ethical urgency triggers
+  → "Pricing Psychology" / "Price Anchoring" — optimal pricing display
+  → "Email Automation" / "Cold Outreach" — sequence setup and sending
+  → "Social Media Content" — content calendar and post creation
+  → "Ad Creative" / "Facebook Ads" — paid acquisition creative
+  → "Lead Magnet" / "Free Tool" — response-time analysis tool builder
+  🧠 AI / LLM SKILLS:
+  → "OpenAI Integration" / "GPT API" — AI qualification engine
+  → "Prompt Engineering" / "System Prompts" — optimized prompts for lead qual
+  → "AI Chatbot" / "Conversational AI" — SMS-based AI conversation
+  → "Sentiment Analysis" / "Lead Scoring AI" — intelligent lead prioritization
+  → "AI Fallback" / "Model Router" — OpenRouter failover patterns
+  → "RAG" / "Knowledge Base" — contractor-specific AI grounding
+  📊 DATA / ANALYTICS SKILLS:
+  → "Data Analysis" / "Financial Modeling" — unit economics, ROI calculations
+  → "PostHog Analytics" / "Product Analytics" — event tracking and funnels
+  → "Dashboard Builder" — client ROI dashboards and analytics views
+  → "Data Visualization" / "Charts" — interactive data presentation
+  → "A/B Testing" / "Feature Flags" — experiment infrastructure
+  → "Cohort Analysis" / "Churn Prediction" — retention analytics
+  🔄 AUTOMATION / WORKFLOW SKILLS:
+  → "n8n Workflow" / "Automation" — pre-built automation flows
+  → "Sales Automation" / "Lead Scoring" — prospect scoring and outreach
+  → "CRM Setup" — HubSpot or Close pipeline configuration
+  → "Email Sequences" / "Drip Campaign" — automated nurture flows
+  → "Slack Notifications" / "Alert System" — multi-channel alerts
+  → "Scheduled Tasks" / "Cron Jobs" — recurring automation
+  📝 CONTENT / COPY SKILLS:
+  → "Blog Generator" / "SEO Content" — search-optimized articles
+  → "Case Study Writer" — client success story templates
+  → "Video Script" / "Explainer" — demo and testimonial scripts
+  → "Pitch Deck" / "Presentation Builder" — investor and client decks
+  → "Email Copy" / "Subject Line" — high-open-rate email writing
+  ⚖️ LEGAL / COMPLIANCE SKILLS:
+  → "Legal Document" / "Contract Generator" — ToS, privacy policy, agreements
+  → "TCPA Compliance" — text messaging regulation templates
+  → "Cookie Consent" / "GDPR" — privacy compliance UI
+  → "Disclaimer Generator" — legal disclaimer copy
+  🏗️ DEVOPS / INFRASTRUCTURE SKILLS:
+  → "Vercel Deploy" / "CI/CD" — deployment automation
+  → "Cloudflare DNS" / "CDN" — domain and security setup
+  → "Sentry Setup" / "Error Monitoring" — error tracking configuration
+  → "GitHub Actions" / "CI Pipeline" — automated testing and deploy
+  → "Environment Variables" / "Secrets Management" — secure config
+
+COMPOSE SKILLS: Chain multiple skills for complex workflows.
+  Example: "Web Scraping" → "Data Analysis" → "CRM Setup" → "Email Automation"
+  = Automated prospect pipeline from research to outreach, built in minutes.
+
+STITCH-POWERED CHAIN (for frontend design):
+  "enhance-prompt" → "Stitch MCP generate" → "Validation Engine (12-point)" →
+  (if fail) → "re-enhance" → "regenerate" → "re-validate" → (if pass) → SHIP
+SKILL SOURCES (search ALL of these):
+  1. Manus Skills Marketplace: /skills command or browse in-platform
+  2. Awesome Manus: https://awesome.manus.space/?category=skills
+  3. Skills MP: https://skillsmp.com/
+  4. Google Stitch Skills: https://github.com/google-labs-code/stitch-skills
+  5. MCP Market Skills: https://mcpmarket.com/tools/skills
+  6. MCP Servers Directory: https://mcpservers.org/
+  7. GitHub MCP Servers: https://github.com/modelcontextprotocol/servers
+SAVE CUSTOM SKILLS: After building any IronClad workflow that works, IMMEDIATELY
+save it as a custom Skill so it can be reused, improved, and shared.
+```
+
+---
+
+## 🧠 Marketing Psychology & Offer Optimization Engine
+
+```jsx
+=== MARKETING PSYCHOLOGY & OFFER OPTIMIZATION ENGINE ===
+Before launching ANY landing page, pricing page, ad, email, or sales asset,
+the agent MUST study and apply these marketing psychology principles.
+The goal: make the IronClad offer so compelling that saying "no" feels irrational.
+--- RESEARCH MANDATE ---
+Before designing ANY conversion-focused page or copy:
+  1. Search for skills: "Marketing Psychology" / "Conversion Optimization" / "CRO"
+  2. Study top SaaS landing pages in the contractor/home-service space
+  3. Analyze what GoHighLevel, ServiceTitan, Jobber, Housecall Pro do on their pages
+  4. Research: What makes contractors specifically click, trust, and buy?
+  5. Document findings BEFORE writing a single line of copy or UI
+--- THE 12 PSYCHOLOGY PRINCIPLES (apply to every customer-facing asset) ---
+1. LOSS AVERSION (Kahneman & Tversky)
+   People feel losses 2x more than equivalent gains.
+   APPLICATION: Frame everything as what they're LOSING, not what they'll gain.
+   → "You're losing $8,400/month to voicemail" > "You could earn $8,400 more"
+   → ROI Calculator shows money LEAVING, not money arriving
+   → Headline: "Stop Losing Jobs" not "Start Getting Jobs"
+   → Use red/negative colors for the "at risk" numbers
+2. SOCIAL PROOF (Cialdini)
+   People follow what others like them are doing.
+   APPLICATION:
+   → "47 Minneapolis contractors already use IronClad" (even if aspirational)
+   → Testimonials from SAME industry: "As an HVAC shop owner..."
+   → Google review count badges: "Trusted by shops with 50+ reviews"
+   → Logo bar of contractor types served (even if using icons, not real logos)
+   → "Most popular" badge on Pro plan = social proof on pricing
+3. URGENCY & SCARCITY (Cialdini)
+   Limited availability increases perceived value.
+   APPLICATION (ethical, real urgency only):
+   → "We onboard 5 new contractors per month in Minneapolis" (capacity limit)
+   → "48-hour setup" = speed creates urgency to start NOW
+   → "Your competitors are already answering" = competitive urgency
+   → "Every day without IronClad = X missed leads" (calculated daily loss)
+   → DO NOT use fake countdown timers or false scarcity. Contractors see through BS.
+4. ANCHORING (Tversky & Kahneman)
+   First number sets the reference point for all judgments.
+   APPLICATION:
+   → Show the "Revenue at Risk" ($27,000/mo) BEFORE showing the price ($197/mo)
+   → Pricing page: show Premium ($347) first, then Pro ($197) feels cheap
+   → ROI Calculator: default slider to 8 missed calls (higher anchor)
+   → "Average job value: $800" anchors high in the calculator
+   → Setup fee anchored against: "One captured lead pays for 6 months"
+5. THE DECOY EFFECT (Ariely)
+   A third option makes the target option look like the best deal.
+   APPLICATION:
+   → Starter ($97) = stripped down (the decoy that makes Pro look worth it)
+   → Pro ($197) = the target (everything a contractor needs, "Most Popular")
+   → Premium ($347) = aspirational (makes Pro feel affordable by comparison)
+   → Feature gap between Starter and Pro must be LARGE
+   → Feature gap between Pro and Premium should be SMALLER
+   → This funnels 70%+ of buyers to Pro. Proven SaaS pricing psychology.
+6. RECIPROCITY (Cialdini)
+   Give value first, people feel obligated to return the favor.
+   APPLICATION:
+   → "Free Response-Time Analysis" = the lead magnet. Give REAL value first.
+   → The analysis shows them their own missed-call data (eye-opening)
+   → After seeing the data, they feel the pain AND feel grateful for the insight
+   → Free analysis → Follow-up call → Demo → Close. Classic reciprocity funnel.
+   → Blog content, guides, and tools = all reciprocity plays
+7. AUTHORITY (Cialdini)
+   People trust experts and data.
+   APPLICATION:
+   → Cite real statistics: "40% of calls missed" (industry data)
+   → "Based on analysis of 10,000+ contractor calls" (when we have the data)
+   → Use specific numbers: "< 10 seconds" not "really fast"
+   → "Minneapolis market specialist" = local authority positioning
+   → Case studies with REAL numbers, not vague praise
+8. COMMITMENT & CONSISTENCY (Cialdini)
+   Small yes leads to bigger yes.
+   APPLICATION:
+   → Free analysis (small yes) → Trial (medium yes) → Paid plan (big yes)
+   → "No contract" removes the big scary commitment
+   → "48-hour setup" = low commitment to start
+   → ROI Calculator = interactive micro-commitment (they invested time)
+   → Email capture → Nurture → Demo → each step is a small commitment
+9. THE ENDOWMENT EFFECT (Thaler)
+   People overvalue what they already have.
+   APPLICATION:
+   → Free trial or pilot: once they SEE leads coming in, they can't give it up
+   → "Try it for 30 days" = they'll feel ownership of captured leads
+   → Monthly ROI report: "You captured 23 leads worth $18,400 this month"
+   → Cancellation becomes painful because they'd lose THEIR leads
+10. COGNITIVE EASE (Kahneman)
+    Simple = trustworthy. Complex = suspicious.
+    APPLICATION:
+    → 3-step "How It Works" (never more than 3 steps)
+    → Pricing: 3 plans, clear names, no hidden fees
+    → "No phone system change" = reduces complexity fear
+    → "You just get a text" = the simplest possible value delivery
+    → Landing page: one clear CTA per section. Never overwhelm.
+    → Contractor-friendly language. No jargon. No tech speak.
+11. THE PEAK-END RULE (Kahneman)
+    People judge experiences by the peak moment and the ending.
+    APPLICATION:
+    → Onboarding peak: first REAL lead captured = "holy shit" moment
+    → Day 7 check-in: show the before vs. after report (peak impact)
+    → Monthly ROI report: end each month on a high note
+    → Landing page: end with the strongest CTA + most compelling stat
+    → The final CTA: "Your Competitors Are Answering. Are You?" = end on urgency
+12. CONTRAST PRINCIPLE (Cialdini)
+    Show the painful alternative to make yours look better.
+    APPLICATION:
+    → "Without IronClad" vs "With IronClad" comparison
+    → Show: voicemail (85% never call back) vs IronClad (< 10 sec text)
+    → Competitor comparison: GoHighLevel ($297/mo + complexity) vs IronClad ($197/mo + simplicity)
+    → "Hiring a receptionist: $2,500/mo" vs "IronClad: $197/mo"
+    → Before/after split-screen on the landing page
+--- OFFER PERFECTION CHECKLIST ---
+Before shipping ANY offer (landing page, ad, email, pitch), verify:
+  ✅ Loss aversion: Does it frame what they're LOSING?
+  ✅ Social proof: Are there testimonials, numbers, or trust signals?
+  ✅ Urgency: Is there a real, ethical reason to act NOW?
+  ✅ Anchoring: Is a big number shown BEFORE the price?
+  ✅ Decoy: Does the pricing structure funnel to Pro?
+  ✅ Reciprocity: Are we giving value BEFORE asking for money?
+  ✅ Authority: Are we citing data, specifics, and expertise?
+  ✅ Commitment ladder: Is the ask small enough for the funnel stage?
+  ✅ Endowment: Will they feel ownership once they start?
+  ✅ Cognitive ease: Is it simple enough for a busy contractor at 7 PM?
+  ✅ Peak-end: Does it end with the strongest possible impression?
+  ✅ Contrast: Is the alternative (doing nothing) shown as painful?
+  ALL 12 must be present. If any are missing → revise before shipping.
+--- OFFER OPTIMIZATION LOOP ---
+For every customer-facing asset, run this loop:
+  1. STUDY: Research top-performing pages in home-service SaaS
+  2. DRAFT: Write copy/design with all 12 principles embedded
+  3. SCORE: Rate each principle 1-5 for how strongly it's applied
+  4. OPTIMIZE: Strengthen any principle scoring below 3
+  5. A/B TEST: Use PostHog feature flags to test variants
+  6. MEASURE: Track conversion rates per variant
+  7. ITERATE: Keep the winner, test the next weakest principle
+  Target: 12/12 principles at 4+ strength = ship-ready offer
+--- CONTRACTOR-SPECIFIC PSYCHOLOGY ---
+Contractors are NOT typical SaaS buyers. Know their psychology:
+  → They are SKEPTICAL of tech. Prove it works, don't explain how.
+  → They respect RESULTS, not features. Lead with ROI, not AI.
+  → They are TIME-POOR. Get to the point in 5 seconds or lose them.
+  → They trust PEERS, not marketers. Testimonials > ad copy.
+  → They fear COMPLEXITY. "You don't touch anything" = magic words.
+  → They make EMOTIONAL decisions justified with LOGIC. Hit the pain first.
+  → They respond to SPECIFIC NUMBERS. "$8,400/mo" not "thousands."
+  → They browse on MOBILE while on job sites. Mobile-first is mandatory.
+  → They buy in the EVENING after work. Target 6-9 PM for ads/emails.
+  → They talk to OTHER CONTRACTORS. Referral program = growth engine.
+```
+
+---
+
+## ⚙️ Mandated Tech Stack
+
+```jsx
+=== MANDATED TECH STACK (NO WIX. NO WEBFLOW. NO NO-CODE. EVER.) ===
+
+The IronClad website and product MUST be built with a coded, developer-grade tech stack.
+Do NOT use Wix, Webflow, Squarespace, Carrd, or ANY no-code/low-code website builder.
+The founder wants full control, zero vendor lock-in, and maximum performance.
+
+--- FRONTEND (Landing Page + Client Dashboard) ---
+Framework:    Next.js (LATEST STABLE App Router, TypeScript — check nextjs.org/docs)
+Styling:      Tailwind CSS + shadcn/ui component library
+Icons:        Lucide React (includes shield icon for brand)
+Animations:   Framer Motion (subtle, professional)
+Forms:        React Hook Form + Zod validation
+Deployment:   Vercel (free tier, auto-deploy from GitHub)
+Domain/CDN:   Cloudflare (free tier DNS + CDN + DDoS protection)
+
+--- BACKEND (API + Missed-Call Engine) ---
+Runtime:      Next.js API Routes (serverless, deployed on Vercel)
+Database:     Supabase (Postgres + Auth + Realtime + Edge Functions)
+ORM:          Prisma (type-safe queries, migrations)
+Auth:         Supabase Auth (magic link for client portal login)
+File Storage: Supabase Storage (contracts, reports, brand assets)
+
+--- VOICE / SMS (Core Product — THE ENGINE) ---
+Provider:     Twilio (Programmable Voice + Programmable Messaging)
+  → Twilio phone number: receives missed-call webhooks
+  → Twilio Messaging API: sends instant text-back (<10 sec)
+  → Twilio Studio (optional): visual flow builder for complex IVR
+  ALTERNATIVES TO EVALUATE (score on Tech Stack Evaluation Framework):
+  → Vonage (Nexmo): cheaper SMS, similar API, good docs
+  → Plivo: lower cost, solid for high-volume SMS
+  → Telnyx: mission-critical grade, competitive pricing
+  → SignalWire (by Twilio founders): lower cost fork of Twilio
+  DEFAULT PICK: Twilio. Most reliable, best documentation, largest community,
+  best webhook support for Next.js. Switch ONLY if another scores higher.
+
+--- AUTOMATION ---
+Primary:      n8n (self-hosted or cloud, free tier)
+Backup:       Make.com (for integrations n8n doesn't support)
+Flow:         Missed call webhook → n8n → OpenAI qualification → Twilio SMS
+              → Supabase log → Slack + Email notify contractor
+
+--- PAYMENTS ---
+Processor:    Stripe (Checkout + Billing Portal + Customer Portal)
+Accounting:   Xero (auto-sync with Stripe)
+
+--- MONITORING ---
+Errors:       Sentry (@sentry/nextjs, free tier)
+Analytics:    PostHog (posthog-js + Next.js plugin, free tier)
+Uptime:       Better Stack or UptimeRobot (free tier)
+
+--- AI LAYER ---
+Primary LLM:  OpenAI GPT-4o-mini (fast, cheap, ideal for qualification scripts)
+Fallback:     Anthropic Claude 3.5 Haiku (if OpenAI goes down)
+Router:       OpenRouter (automatic failover between models)
+Embeddings:   Cohere (for knowledge base search, if needed later)
+
+COMPATIBILITY VALIDATION (all verified):
+  --- COMPATIBILITY: DO NOT ASSUME. VERIFY AT BUILD TIME. ---
+  For EVERY pair below, the agent MUST:
+    1. Check official docs for integration guides
+    2. Search GitHub Issues for known conflicts
+    3. Verify version compatibility between each pair
+    4. Document findings in a Compatibility Report for founder review
+  PAIRS TO VERIFY (at build time, not in advance):
+    → Next.js (latest stable) + Vercel deployment
+    → Supabase JS client + Next.js SSR/SSG via @supabase/ssr
+    → Prisma + Supabase Postgres (check official Prisma guide)
+    → Twilio webhooks + Next.js API routes
+    → Stripe Checkout + Next.js (@stripe/stripe-js + stripe SDK)
+    → n8n webhooks + Supabase + Twilio HTTP integration
+    → Tailwind CSS + shadcn/ui + Next.js
+    → PostHog + Next.js (posthog-js/react wrapper)
+    → Sentry + Next.js (@sentry/nextjs SDK)
+    → Cloudflare DNS + Vercel (CNAME setup)
+    → Framer Motion + React (current stable)
+    → Lucide React + Tailwind
+  DO NOT mark these as "verified" until you have actually checked at build time.
+  Versions change. APIs change. What worked last month may not work today.
+  THE DOCS WIN. Always.
+```
+
+---
+
+## 📋 Compatibility Report Template
+
+<aside>
+📋
+
+**PRODUCE THIS REPORT BEFORE WRITING ANY CODE.** The founder must review and approve it. No exceptions.
+
+</aside>
+
+```markdown
+=== COMPATIBILITY REPORT — [PROJECT NAME] — [DATE] ===
+
+--- 1. STACK CHOICES (3 options evaluated per critical dependency) ---
+| Dependency      | Option A          | Option B          | Option C          | Winner  |
+|-----------------|-------------------|-------------------|-------------------|---------|
+| Framework       | [name + version]  | [name + version]  | [name + version]  | [pick]  |
+| Database        | [name + version]  | [name + version]  | [name + version]  | [pick]  |
+| Voice/SMS       | [name + version]  | [name + version]  | [name + version]  | [pick]  |
+| Payments        | [name + version]  | [name + version]  | [name + version]  | [pick]  |
+| Automation      | [name + version]  | [name + version]  | [name + version]  | [pick]  |
+Scoring: upkeep (30%), reliability (25%), cost (20%), scalability (15%), solo-fit (10%)
+
+--- 2. CHOSEN VERSIONS (with proof links) ---
+| Package              | Version  | Official Docs Link       | GitHub Release Link      |
+|----------------------|----------|--------------------------|---------------------------|
+| next                 | x.y.z    | nextjs.org/docs          | github.com/vercel/next.js |
+| @supabase/ssr        | x.y.z    | supabase.com/docs        | github.com/supabase/...   |
+| prisma               | x.y.z    | prisma.io/docs           | github.com/prisma/prisma  |
+| twilio               | x.y.z    | twilio.com/docs          | github.com/twilio/...     |
+| stripe               | x.y.z    | stripe.com/docs          | github.com/stripe/...     |
+| [every other dep]    | x.y.z    | [link]                   | [link]                    |
+Total dependency count: __ (MUST be <20)
+
+--- 3. INTEGRATION PAIR CHECKS ---
+| Pair                              | Verified? | Source             | Breaking changes? |
+|-----------------------------------|-----------|--------------------|--------------------|
+| Next.js + Vercel                  | ✅/❌      | [link to guide]    | [yes/no + detail]  |
+| Supabase + Next.js SSR            | ✅/❌      | [link]             | [yes/no]           |
+| Prisma + Supabase Postgres        | ✅/❌      | [link]             | [yes/no]           |
+| Twilio + Next.js API routes       | ✅/❌      | [link]             | [yes/no]           |
+| Stripe + Next.js                  | ✅/❌      | [link]             | [yes/no]           |
+| [every mandated pair]             | ✅/❌      | [link]             | [yes/no]           |
+
+--- 4. EDGE-CASE LIST ---
+| Category          | Risk                                 | Mitigation              |
+|-------------------|--------------------------------------|-------------------------|
+| Timeouts          | Twilio webhook 15s limit             | [plan]                  |
+| Webhook retries   | Stripe sends duplicate events        | [idempotency plan]      |
+| Duplicate SMS     | Status callback fires twice          | [dedup plan]            |
+| Rate limits       | OpenAI 429 during traffic spike      | [fallback + queue plan] |
+| Cold starts       | Vercel serverless cold start >10s    | [plan]                  |
+| [add all found]   | [risk]                               | [plan]                  |
+
+--- 5. DECISION ---
+☐ PROCEED — all pairs verified, all edges mitigated, <20 deps
+☐ BLOCK — [list blocking reasons]
+
+Founder approval: _________________ Date: _________
+```
+
+---
+
+## 📞 Twilio Setup & Configuration
+
+```jsx
+=== TWILIO SETUP & CONFIGURATION ===
+
+ACCOUNT SETUP:
+1. Create Twilio account (free trial = $15 credit, enough to test)
+2. Buy a local Minneapolis +1(612) phone number (~$1.00/mo)
+3. Enable Programmable Voice + Programmable Messaging on the number
+4. Set Voice webhook: POST https://YOUR_VERCEL_URL/api/twilio/voice
+5. Set SMS webhook: POST https://YOUR_VERCEL_URL/api/twilio/sms
+6. Set Status Callback: POST https://YOUR_VERCEL_URL/api/twilio/status
+
+MISSED CALL DETECTION FLOW:
+  Incoming call → Twilio webhook hits /api/twilio/voice
+  → TwiML response: <Dial timeout="20">CONTRACTOR_PHONE</Dial>
+  → If contractor answers: done, no action needed
+  → If no answer (CallStatus: "no-answer" | "busy" | "failed"):
+    → Status callback hits /api/twilio/status
+    → API calls /api/twilio/sms to send instant text-back
+    → OpenAI generates personalized greeting text
+    → Twilio sends SMS to caller in <10 seconds
+    → Lead record created in Supabase (leads table)
+    → Contractor notified via SMS + Email + Slack
+    → AI begins qualification conversation via SMS
+
+TWILIO WEBHOOK PAYLOAD (what your API receives on voice):
+  CallSid, AccountSid, From, To, CallStatus, Direction, ApiVersion, Timestamp
+  → Trigger on: CallStatus === "no-answer" || "busy" || "failed" || "canceled"
+
+COST ESTIMATE AT SCALE:
+  Phone number: $1.00/mo per contractor
+  Inbound voice: $0.0085/min
+  Outbound SMS: $0.0079/segment (160 chars)
+  Inbound SMS: $0.0075/segment
+  Per contractor (avg 20 missed calls/mo): ~$0.50/mo Twilio cost
+  At 50 clients: ~$75/mo total Twilio spend vs $9,850/mo revenue = 99.2% margin
+  UNIT ECONOMICS: Massive margin. Twilio cost is negligible.
+```
+
+---
+
+## 🔗 Prompt Orchestration for Backend Build
+
+<aside>
+⚡
+
+**Execute these prompts IN ORDER.** Each builds on the previous one. Placeholders use `PLACEHOLDER_NAME` format — replace with real values during setup. Do not skip steps.
+
+</aside>
+
+### Prompt 1: Project Scaffold
+
+```jsx
+"STEP 0 — RESEARCH BEFORE SCAFFOLDING:
+  Before running ANY install commands, verify current stable versions:
+  → nextjs.org/docs — what is the latest stable App Router release?
+  → ui.shadcn.com — what is the current init command? (it may have changed)
+  → prisma.io/docs — any breaking changes in the latest version?
+  → supabase.com/docs — current @supabase/ssr version and setup?
+  → docs.sentry.io — current @sentry/nextjs wizard command?
+  → Check npm for latest stable: twilio, stripe, posthog-js, framer-motion
+  → Search GitHub Issues for conflicts between these at current versions
+  → Deliver VERSION REPORT to founder. Get approval before proceeding.
+
+STEP 1 — Create Next.js project (latest stable App Router):
+  npx create-next-app@latest ironclad --typescript --tailwind --eslint --app --src-dir
+
+Install all dependencies:
+  npm install @supabase/supabase-js @supabase/ssr prisma @prisma/client
+  npm install twilio stripe @stripe/stripe-js
+  npm install @sentry/nextjs posthog-js
+  npm install lucide-react framer-motion
+  npm install react-hook-form @hookform/resolvers zod
+  npx shadcn-ui@latest init (choose: New York style, Slate base, CSS variables: yes)
+
+Create this directory structure:
+  src/
+    app/
+      (marketing)/              ← Landing page (public, no auth)
+        page.tsx                 ← Homepage / hero + features + pricing
+        pricing/page.tsx         ← Dedicated pricing page
+        about/page.tsx           ← About / story page
+      (dashboard)/              ← Client portal (auth required)
+        dashboard/page.tsx       ← Lead overview + stats
+        leads/page.tsx           ← Full lead list with filters
+        settings/page.tsx        ← Account + billing settings
+      api/
+        twilio/
+          voice/route.ts         ← Incoming call webhook (TwiML)
+          sms/route.ts           ← Incoming/outgoing SMS handler
+          status/route.ts        ← Call status callback
+        stripe/
+          checkout/route.ts      ← Create Checkout Session
+          webhook/route.ts       ← Stripe event handler
+        leads/
+          route.ts               ← CRUD endpoints for leads
+        notify/
+          route.ts               ← Multi-channel notification sender
+        ai/
+          qualify/route.ts       ← AI qualification endpoint
+      layout.tsx
+      globals.css
+    components/
+      ui/                        ← shadcn/ui base components
+      marketing/
+        Hero.tsx
+        ProblemStats.tsx
+        HowItWorks.tsx
+        Features.tsx
+        PricingCards.tsx
+        Testimonials.tsx
+        ROICalculator.tsx
+        FAQ.tsx
+        FinalCTA.tsx
+        Footer.tsx
+        Navbar.tsx
+      dashboard/
+        LeadCard.tsx
+        LeadTable.tsx
+        StatsCards.tsx
+        ROIReport.tsx
+      icons/
+        ShieldLogo.tsx           ← IronClad shield SVG component
+        PhoneRinging.tsx         ← Animated phone icon
+        LightningBolt.tsx        ← Speed icon
+        ChatCheck.tsx            ← AI qualification icon
+    lib/
+      supabase/
+        client.ts                ← Browser Supabase client
+        server.ts                ← Server Supabase client
+        middleware.ts            ← Auth middleware for dashboard routes
+      twilio/
+        client.ts                ← Twilio client initialization
+        send-sms.ts              ← SMS sending helper
+        handle-missed-call.ts    ← Core missed-call logic
+        twiml-builder.ts         ← TwiML response builder
+      stripe/
+        client.ts                ← Stripe client init
+        plans.ts                 ← Plan price IDs and metadata
+        checkout.ts              ← Checkout session creator
+      ai/
+        qualify-lead.ts          ← OpenAI lead qualification prompt
+        generate-reply.ts        ← AI text reply generator
+        fallback-templates.ts    ← Pre-written fallback texts (no AI dependency)
+      utils/
+        constants.ts             ← Brand colors, copy, feature flags
+        helpers.ts               ← Utility functions
+        validation.ts            ← Zod schemas for all forms/APIs
+    types/
+      index.ts                   ← All TypeScript interfaces
+  prisma/
+    schema.prisma                ← Database schema
+  public/
+    favicon.ico
+    og-image.png
+    shield-logo.svg
+
+  .env.local with these EXACT keys:
+    NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+    SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_KEY
+    DATABASE_URL=YOUR_DATABASE_URL
+    TWILIO_ACCOUNT_SID=YOUR_TWILIO_SID
+    TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH
+    TWILIO_PHONE_NUMBER=YOUR_TWILIO_PHONE
+    STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET
+    STRIPE_WEBHOOK_SECRET=YOUR_STRIPE_WEBHOOK_SECRET
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=YOUR_STRIPE_PUB_KEY
+    OPENAI_API_KEY=YOUR_OPENAI_KEY
+    SLACK_WEBHOOK_URL=YOUR_SLACK_WEBHOOK
+    SENTRY_DSN=YOUR_SENTRY_DSN
+    NEXT_PUBLIC_POSTHOG_KEY=YOUR_POSTHOG_KEY
+    NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
+    NEXT_PUBLIC_BASE_URL=YOUR_BASE_URL
+
+Initialize Prisma: npx prisma init
+Init Sentry: npx @sentry/wizard@latest -i nextjs
+Push to GitHub: git init && git remote add origin YOUR_GITHUB_REPO_URL
+Verify: npm run dev works with no errors."
+```
+
+### Prompt 2: Database Schema
+
+```jsx
+"Create the Prisma schema at prisma/schema.prisma:
+
+  datasource db { provider = 'postgresql', url = env('DATABASE_URL') }
+  generator client { provider = 'prisma-client-js' }
+
+  enum BusinessType { HVAC, PLUMBING, ELECTRICAL, ROOFING }
+  enum PlanTier { STARTER, PRO, PREMIUM }
+  enum NotificationChannel { SMS, EMAIL, SLACK }
+  enum NotificationStatus { PENDING, SENT, DELIVERED, FAILED }
+  enum SMSDirection { INBOUND, OUTBOUND }
+
+  model Contractor {
+    id                    String   @id @default(cuid())
+    name                  String
+    email                 String   @unique
+    phone                 String
+    businessName          String
+    businessType          BusinessType
+    address               String?
+    city                  String   @default('Minneapolis')
+    state                 String   @default('MN')
+    zip                   String?
+    twilioNumber          String?  @unique
+    plan                  PlanTier @default(PRO)
+    stripeCustomerId      String?  @unique
+    stripeSubscriptionId  String?  @unique
+    isActive              Boolean  @default(false)
+    onboardedAt           DateTime?
+    createdAt             DateTime @default(now())
+    updatedAt             DateTime @updatedAt
+    leads                 Lead[]
+    notifications         Notification[]
+  }
+
+  model Lead {
+    id                  String   @id @default(cuid())
+    contractorId        String
+    contractor          Contractor @relation(fields: [contractorId], references: [id])
+    callerPhone         String
+    callerName          String?
+    callSid             String?  @unique
+    callStatus          String?
+    qualificationScore  Int?     @default(0)
+    qualificationData   Json?
+    aiResponseText      String?
+    responseTimeMs      Int?
+    isConverted         Boolean  @default(false)
+    notes               String?
+    createdAt           DateTime @default(now())
+    updatedAt           DateTime @updatedAt
+    notifications       Notification[]
+    smsConversations    SMSConversation[]
+  }
+
+  model Notification {
+    id            String              @id @default(cuid())
+    contractorId  String
+    contractor    Contractor          @relation(fields: [contractorId], references: [id])
+    leadId        String?
+    lead          Lead?               @relation(fields: [leadId], references: [id])
+    channel       NotificationChannel
+    status        NotificationStatus  @default(PENDING)
+    sentAt        DateTime?
+    createdAt     DateTime            @default(now())
+  }
+
+  model SMSConversation {
+    id          String       @id @default(cuid())
+    leadId      String
+    lead        Lead         @relation(fields: [leadId], references: [id])
+    direction   SMSDirection
+    fromNumber  String
+    toNumber    String
+    body        String
+    twilioSid   String?      @unique
+    createdAt   DateTime     @default(now())
+  }
+
+  Run: npx prisma db push && npx prisma generate
+  Verify: npx prisma studio shows all tables"
+```
+
+### Prompt 3: Twilio Voice Webhook (Core Product)
+
+```jsx
+"Build src/app/api/twilio/voice/route.ts:
+  - Accept POST from Twilio with incoming call data
+  - Validate Twilio request signature (security)
+  - Look up contractor by the Twilio number (req.body.To)
+  - If contractor found and active:
+    → Return TwiML: <Response><Dial timeout='20' action='/api/twilio/status'
+      method='POST'>CONTRACTOR_PHONE</Dial></Response>
+  - If contractor not found: return TwiML with apology message
+  - The /status endpoint handles the no-answer detection
+
+Build src/app/api/twilio/status/route.ts:
+  - Accept POST from Twilio status callback
+  - Check DialCallStatus: 'no-answer' | 'busy' | 'failed' | 'canceled'
+  - If missed:
+    → Record start timestamp
+    → Call handleMissedCall() from lib/twilio/handle-missed-call.ts
+    → This function: creates Lead record, generates AI text, sends SMS,
+      notifies contractor, logs response time
+    → Record end timestamp, calculate responseTimeMs
+    → Target: responseTimeMs < 10000 (10 seconds)
+  - If answered: log successful call, no text-back needed
+
+Build src/lib/twilio/handle-missed-call.ts:
+  async function handleMissedCall(callerPhone, contractorId, callSid):
+    1. Create Lead in Supabase (status: 'new')
+    2. Generate AI reply via lib/ai/generate-reply.ts
+    3. Send SMS via lib/twilio/send-sms.ts
+    4. Create SMSConversation record (direction: OUTBOUND)
+    5. Send notifications via /api/notify
+    6. Update Lead with responseTimeMs and aiResponseText
+    7. Return { success: true, responseTimeMs, leadId }"
+```
+
+### Prompt 4: AI Qualification Engine
+
+```jsx
+"Build src/lib/ai/generate-reply.ts:
+  - Use OpenAI GPT-4o-mini (model: 'gpt-4o-mini')
+  - System prompt:
+    'You are a friendly assistant for CONTRACTOR_BUSINESS_NAME, a
+    BUSINESS_TYPE company in Minneapolis. A customer just called but
+    the call was missed. Text them back warmly, apologize briefly, and ask
+    what service they need. Keep under 160 chars. Be professional, friendly.
+    Never mention AI, automation, or bots. Sound human.'
+  - Return the generated text string
+  - FALLBACK: If OpenAI call fails, use lib/ai/fallback-templates.ts
+    which has pre-written templates per business type:
+    HVAC: 'Hi! Sorry we missed your call. How can we help with your
+    heating or cooling? Reply here and we will get right back to you.'
+    (similar for plumbing, electrical, roofing)
+    THE CORE FLOW MUST NEVER DEPEND ON AI BEING AVAILABLE.
+
+Build src/lib/ai/qualify-lead.ts:
+  - Handle follow-up SMS conversation (inbound texts from caller)
+  - System prompt for qualification:
+    'You are qualifying a lead for BUSINESS_NAME. Ask 1-2 short
+    questions to understand: (1) what service they need, (2) urgency
+    level. Score 1-10. Keep texts under 160 chars. Be conversational.'
+  - Business-type-specific questions:
+    HVAC: 'Is this for heating, cooling, or maintenance?'
+    Plumbing: 'Is this an emergency or can it wait to be scheduled?'
+    Electrical: 'Residential or commercial?'
+    Roofing: 'Repair, inspection, or full replacement?'
+  - Store qualification data as JSON: { score, service_needed, urgency, notes }
+  - After qualification complete, send summary to contractor"
+```
+
+### Prompt 5: Notification Engine
+
+```jsx
+"Build src/app/api/notify/route.ts:
+  On new lead capture, notify contractor on ALL channels simultaneously:
+
+  SMS (via Twilio):
+    To: CONTRACTOR_PHONE
+    Body: 'New lead! CALLER_PHONE needs SERVICE_TYPE.
+    Score: SCORE/10. Reply CALL for their number.'
+
+  Email (via Gmail API or Resend):
+    Subject: '🛡️ IronClad: New Lead — CALLER_PHONE'
+    Body: HTML template with lead card (phone, service, score, time,
+    one-click call-back link)
+
+  Slack (via webhook):
+    POST to SLACK_WEBHOOK_URL
+    Formatted blocks: lead card with all details + action buttons
+
+  Track delivery status per channel in Notification table.
+  Retry failed notifications 3x with exponential backoff (1s, 5s, 25s).
+  If all channels fail, log critical error to Sentry."
+```
+
+### Prompt 6: Stripe Billing
+
+```jsx
+"Build Stripe billing at src/app/api/stripe/:
+
+  checkout/route.ts:
+  - Create Checkout Sessions combining setup fee + subscription:
+    Starter: $149 one-time + $97/mo recurring
+    Pro:     $249 one-time + $197/mo recurring
+    Premium: $399 one-time + $347/mo recurring
+  - Use Stripe line_items with both price types
+  - success_url: /dashboard?session_id={CHECKOUT_SESSION_ID}
+  - cancel_url: /pricing
+
+  webhook/route.ts:
+  - Verify Stripe signature with STRIPE_WEBHOOK_SECRET
+  - Handle events:
+    checkout.session.completed → create Contractor, provision Twilio number
+    invoice.paid → log payment, keep isActive=true
+    customer.subscription.deleted → set isActive=false, remove Twilio forwarding
+    invoice.payment_failed → send dunning email, flag account
+  - All handlers are idempotent (safe to retry)"
+```
+
+### Prompt 7: Landing Page UI
+
+```jsx
+"Build the full IronClad landing page at src/app/(marketing)/page.tsx.
+USE THE EXACT COPY FROM THE SCAFFOLD DELIVERABLES SECTION BELOW.
+
+Components to build:
+
+Navbar.tsx:
+  - ShieldLogo + 'IronClad' wordmark (left)
+  - Links: How It Works, Pricing, FAQ (center, hidden on mobile)
+  - CTA button: 'Get Started' (right)
+  - Mobile hamburger menu
+  - Sticky on scroll with blur backdrop
+
+Hero.tsx:
+  - Headline: 'Stop Losing Jobs to Voicemail'
+  - Sub: 'IronClad texts your missed callers back in under 10 seconds
+    — before they call the next contractor.'
+  - Primary CTA: 'Start Capturing Leads →'
+  - Secondary CTA: 'Free Response-Time Analysis'
+  - Trust: 'No contracts. 48-hour setup. Cancel anytime.'
+  - Optional: phone mockup showing text-back in action
+
+ProblemStats.tsx:
+  - '40%' — 'of contractor calls go unanswered'
+  - '85%' — 'of missed callers never call back'
+  - '80%' — 'call the next contractor instead'
+  - Closing: 'That is $3,000 to $27,000/month walking out the door.'
+  - Animated counter on scroll into view
+
+HowItWorks.tsx:
+  - 3-step horizontal flow with icons + connector lines
+  - Step 1: Phone icon + 'Customer Calls'
+  - Step 2: Shield/lightning icon + 'IronClad Catches It'
+  - Step 3: Bell icon + 'You Get the Lead'
+
+Features.tsx:
+  - 6-card grid (2x3 desktop, 1-col mobile)
+  - Under 10 Seconds, AI Qualification, Instant Notifications,
+    Built for Contractors, ROI Reports, Zero Risk
+  - Each card: icon + title + 1-line description
+
+PricingCards.tsx:
+  - 3 cards side by side, Pro highlighted as 'Most Popular'
+  - Each: plan name, setup fee, monthly, feature list, CTA
+  - Toggle: monthly view (default)
+
+ROICalculator.tsx:
+  - Two sliders: missed calls/week (1-30), avg job value ($200-$5000)
+  - Live calculation: missedCalls * 4 * 0.30 * avgJobValue
+  - Output: 'You are leaving approximately $X/month on the table.'
+  - CTA: 'Stop the leak. Start capturing leads today. →'
+
+FAQ.tsx:
+  - Accordion/collapsible format
+  - Use the FAQ copy from scaffold deliverables below
+
+FinalCTA.tsx:
+  - Dark bg, bold headline: 'Your Competitors Are Answering. Are You?'
+  - CTA: 'Get Started Now →'
+
+Footer.tsx:
+  - Logo + tagline, nav links, legal links (ToS, Privacy), social icons
+  - Copyright: '© 2026 IronClad. All rights reserved.'
+
+Brand specs:
+  Colors: Navy #1B2A4A, Gold #D4A843, White #FFFFFF, Light Gray #F5F5F5
+  Font: Inter (headings, 700) + system stack (body, 400/500)
+  Mobile-first responsive. All components server-rendered where possible."
+```
+
+### Prompt 8: Connect Frontend to Backend
+
+```jsx
+"Wire up all interactive elements:
+  - 'Get Started' and pricing CTAs → Stripe Checkout (pass plan tier)
+  - 'Free Response-Time Analysis' → modal form capturing name, email,
+    phone, business type → Supabase insert + email notification to founder
+  - ROI Calculator → client-side calculation, no API call needed
+  - Contact/support form → Supabase + Slack notification
+  - All forms: Zod validation, loading states, error toasts, success messages
+  - PostHog: track all CTA clicks, page views, scroll depth, calculator usage
+  - Sentry: wrap all API routes with error boundary
+  Deploy to Vercel: vercel --prod
+  Set env vars in Vercel dashboard (all PLACEHOLDER values)
+  Configure Cloudflare DNS to point domain to Vercel
+  Verify: all pages load, all forms submit, all webhooks fire.
+  Run Lighthouse audit: target 95+ Performance, 100 Accessibility."
+```
+
+---
+
+## 🎨 Scaffold Deliverables
+
+### Shield Logo SVG Component
+
+```jsx
+Create src/components/icons/ShieldLogo.tsx:
+  - Shield shape with subtle gradient (navy #1B2A4A to #0F1B33)
+  - Lightning bolt or signal wave lines inside the shield
+  - Gold accent stroke (#D4A843) on shield border
+  - 'IC' monogram variant for favicon
+  - Props: size (default 40), className, variant ('full'|'icon'|'mono')
+  - Export as React component + raw SVG string for external use
+
+  SVG SPECS:
+    Viewbox: 0 0 64 64
+    Primary fill: #1B2A4A (navy)
+    Accent: #D4A843 (gold)
+    Style: Modern, minimal, tech-forward, trustworthy
+    Must render crisp at: 16x16 (favicon), 32x32 (tab), 64x64 (nav), 200x200 (hero)
+```
+
+### Brand Assets to Generate
+
+1. **ShieldLogo.tsx** — primary, inverted (white), monochrome variants
+2. **Favicon set** — .ico + .png at 16, 32, 180 (apple-touch), 192, 512
+3. **Open Graph image** (1200×630) — shield + tagline on dark navy bg
+4. **Twitter/X card** (1200×600) — same as OG but cropped
+5. **Email header** (600×200) — shield + "IronClad Missed-Call Capture"
+6. **Social avatar** (400×400) — shield on navy circle
+
+### Additional Icon Components
+
+Use **Lucide React** where a good match exists. Custom SVGs only when needed.
+
+| # | File | Lucide Icon | Purpose |
+| --- | --- | --- | --- |
+| 1 | PhoneRinging.tsx | `Phone`  • Framer Motion pulse | "Customer Calls" step |
+| 2 | LightningBolt.tsx | `Zap` (gold color) | "Under 10 Seconds" feature |
+| 3 | ChatCheck.tsx | `MessageSquareCheck` | "AI Qualification" feature |
+| 4 | BellAlert.tsx | `BellRing`  • subtle shake | "Instant Notifications" feature |
+| 5 | Wrench.tsx | `Wrench` | "Built for Contractors" feature |
+| 6 | BarChartUp.tsx | `TrendingUp` | "ROI Reports" feature |
+| 7 | ShieldCheck.tsx | `ShieldCheck` | "Zero Risk" feature |
+| 8 | ArrowFlow.tsx | Custom 3-node flow | "How It Works" connector |
+
+All: 24×24 default, scalable, brand colors (#1B2A4A, #D4A843), stroke width 2px.
+
+---
+
+## 📝 Landing Page Copy
+
+<aside>
+📋
+
+**Use this copy EXACTLY as written.** This is the final, on-brand copy for the IronClad landing page.
+
+</aside>
+
+### Hero
+
+- **H1:** Stop Losing Jobs to Voicemail
+- **Subheadline:** IronClad texts your missed callers back in under 10 seconds — before they call the next contractor.
+- **CTA Primary:** Start Capturing Leads →
+- **CTA Secondary:** Free Response-Time Analysis
+- **Trust badge:** No contracts. 48-hour setup. Cancel anytime.
+
+### Problem Section
+
+- **Title:** Every Missed Call Is a Lost Job
+- **40%** — of contractor calls go unanswered
+- **85%** — of missed callers never call back
+- **80%** — call the next contractor instead
+- **Closing:** That is $3,000 to $27,000 per month walking out the door.
+
+### How It Works
+
+- **Title:** How IronClad Works
+- **Step 1:** 📱 Customer Calls — *A homeowner calls your business. You are on a job, driving, or it is after hours.*
+- **Step 2:** 🛡️ IronClad Catches It — *Our AI detects the missed call and texts the customer back in under 10 seconds.*
+- **Step 3:** 🔔 You Get the Lead — *The customer is qualified and you get an instant notification. Call them back and close the job.*
+
+### Features
+
+- **Title:** Why Contractors Choose IronClad
+1. ⚡ **Under 10 Seconds** — Fastest response time in the industry.
+2. 🤖 **AI-Powered Qualification** — Our AI asks the right questions.
+3. 🔔 **Instant Notifications** — Text, email, and Slack alerts instantly.
+4. 🔧 **Built for Contractors** — Made for HVAC, plumbing, electrical, roofing.
+5. 📊 **ROI Reports** — See exactly how many leads and dollars you saved.
+6. 🛡️ **Zero Risk** — No contracts. No phone changes. Cancel anytime.
+
+### Pricing
+
+- **Title:** Simple Pricing. Massive ROI.
+- **Sub:** One captured lead pays for months of service.
+- Use the 3-tier pricing cards: **Starter** $97/mo, **Pro** $197/mo (highlighted), **Premium** $347/mo
+
+### Testimonial Placeholders
+
+> *"IronClad captured 12 leads in the first week that I would have completely missed. The ROI is insane."*
+> 
+
+> — CONTRACTOR_NAME, BUSINESS_NAME
+> 
+
+> *"I did not realize how many calls I was missing until I saw the report. Now I catch every one."*
+> 
+
+> — CONTRACTOR_NAME, BUSINESS_NAME
+> 
+
+### ROI Calculator
+
+- **Title:** See What You Are Leaving on the Table
+- **Input 1:** Missed calls per week (slider 1–30, default 8)
+- **Input 2:** Average job value (slider $200–$5,000, default $800)
+- **Formula:** `missedCalls × 4 × 0.30 × avgJobValue`
+- **Output:** "You are leaving approximately $X/month on the table."
+- **CTA:** Stop the leak. Start capturing leads today. →
+
+### FAQ
+
+| Question | Answer |
+| --- | --- |
+| How does IronClad work? | When a customer calls and you cannot answer, IronClad detects the missed call and instantly sends a personalized text. Our AI qualifies the lead and you get their info immediately. |
+| Do I need to change my phone system? | No. Simple call forwarding takes 2 minutes. Your number stays the same. |
+| What if the customer does not text back? | Most do. Our text arrives within seconds while they still need help, so response rates are significantly higher than voicemail. |
+| Is there a contract? | No. Month-to-month. Cancel anytime. We earn your business every month. |
+| How fast is setup? | 48 hours. Most clients are live in 24. |
+| How much does it cost? | Plans start at $97/month. One captured lead typically pays for months of service. |
+
+### Footer CTA
+
+- **H2:** Your Competitors Are Answering. Are You?
+- **CTA:** Get Started Now →
+
+---
+
+## 🔒 Single Source of Truth (SSOT) Policy
+
+<aside>
+🔒
+
+**SSOT ENFORCEMENT — NO COPY/PRICING/BRAND DRIFT**
+The `constants.ts` file below and the Locked Landing Page Copy above are the **single source of truth** for all brand, pricing, stats, and copy. Every asset — site, ads, emails, sales scripts, Stripe products, pitch decks — MUST pull from these sources. If you change pricing, change it in `constants.ts` and the copy section, then propagate everywhere. Never edit a downstream asset without updating the source first.
+
+**Consistency rule:** Starter/Pro/Premium with setup + monthly pricing must match across: landing page, Stripe Checkout, cold email sequences, pitch decks, onboarding docs, and ROI calculator defaults. If any asset disagrees with `constants.ts`, that asset has a bug.
+
+</aside>
+
+## 📦 Constants File
+
+```tsx
+// src/lib/utils/constants.ts
+
+export const BRAND = {
+  name: 'IronClad',
+  tagline: 'Missed-Call Capture',
+  colors: {
+    navy: '#1B2A4A',
+    gold: '#D4A843',
+    white: '#FFFFFF',
+    gray: '#F5F5F5',
+    darkNavy: '#0F1B33',
+    text: '#1A1A1A',
+    textMuted: '#6B7280',
+  },
+  fonts: {
+    heading: 'Inter, system-ui, sans-serif',
+    body: 'system-ui, sans-serif',
+  },
+  social: {
+    facebook: 'YOUR_FB_URL',
+    instagram: 'YOUR_IG_URL',
+    linkedin: 'YOUR_LI_URL',
+  },
+  legal: { tos: '/legal/terms', privacy: '/legal/privacy' },
+  contact: { email: 'YOUR_EMAIL', phone: 'YOUR_PHONE' },
+}
+
+export const PLANS = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    setup: 149,
+    monthly: 97,
+    features: [
+      'AI missed-call texting',
+      'SMS notifications',
+      'Basic qualification',
+      'Up to 50 leads/mo',
+      'Email support',
+    ],
+    stripePriceId: 'YOUR_STRIPE_STARTER_PRICE',
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    setup: 249,
+    monthly: 197,
+    popular: true,
+    features: [
+      'Everything in Starter',
+      'Advanced AI qualification',
+      'SMS + Email notifications',
+      'Basic reports',
+      'Up to 200 leads/mo',
+      'Priority support',
+    ],
+    stripePriceId: 'YOUR_STRIPE_PRO_PRICE',
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    setup: 399,
+    monthly: 347,
+    features: [
+      'Everything in Pro',
+      'Custom AI flows',
+      'Full dashboard',
+      'Unlimited leads',
+      'ROI reports',
+      'Dedicated onboarding',
+      'Slack integration',
+    ],
+    stripePriceId: 'YOUR_STRIPE_PREMIUM_PRICE',
+  },
+]
+
+export const STATS = {
+  missedCallRate: 40,
+  neverCallBack: 85,
+  callNextContractor: 80,
+  responseTime: '<10 seconds',
+  avgTicketRange: '$500–$1,500+',
+}
+```
+
+---
+
+## ✅ Definition of Done (Ship Criteria)
+
+<aside>
+🚢
+
+**NOTHING SHIPS WITHOUT MEETING ALL OF THESE.** A feature is "done" when it passes every row below. "It works on my machine" is not done.
+
+</aside>
+
+| **Category** | **Requirement** | **Target** | **Status** |
+| --- | --- | --- | --- |
+| **Lighthouse** | Performance score | 95+ | ⬜ |
+| **Lighthouse** | Accessibility score | 100 | ⬜ |
+| **Lighthouse** | Best Practices score | 95+ | ⬜ |
+| **Lighthouse** | SEO score | 100 | ⬜ |
+| **Monitoring** | Sentry wrapping all API routes | 100% coverage | ⬜ |
+| **Monitoring** | PostHog tracking all CTAs + pages | All events firing | ⬜ |
+| **Bundle** | Total dependencies in package.json | <20 | ⬜ |
+| **Compatibility** | Compatibility Report approved by founder | Approved | ⬜ |
+| **SSOT** | All copy/pricing matches constants.ts | Zero drift | ⬜ |
+| **Psychology** | 12-principle checklist scored 4+ on every principle | 12/12 at 4+ | ⬜ |
+| **Stitch Loop** | All UI components passed Stitch Loop + Validation Engine | 12/12 PASS per component | ⬜ |
+| **Validation Gate** | All 8 gates on the Gate Scoreboard are ✅ | 8/8 green | ⬜ |
+
+### 📊 Minimal Event Schema (PostHog)
+
+| **Event Name** | **Properties** | **Trigger** |
+| --- | --- | --- |
+| `cta_click` | which_cta, page, variant | Any CTA button clicked |
+| `lead_form_submit` | form_type (analysis / contact), email, business_type | Response-time analysis or contact form submitted |
+| `roi_calc_change` | missed_calls, avg_job_value, calculated_revenue | ROI calculator slider moved |
+| `checkout_start` | plan (starter / pro / premium) | Stripe Checkout session created |
+| `checkout_complete` | plan, setup_fee, monthly, stripe_session_id | Stripe Checkout succeeded |
+| `webhook_success` | type (twilio_voice / twilio_sms / stripe), latency_ms | Webhook processed successfully |
+| `webhook_fail` | type, error_code, error_message | Webhook processing failed |
+| `page_view` | page, referrer, utm_source, utm_medium | Any page loaded |
+| `scroll_depth` | page, depth_percent (25 / 50 / 75 / 100) | User scrolls past threshold |
+
+**Rule:** If an event in this schema is not firing in PostHog after deploy, the feature is not shipped.
+
+---
+
+<aside>
+🛡️
+
+**Paste this entire page into Manus AFTER the main system prompt.** Together, the system prompt + this orchestration doc give the agent everything it needs: the business brain AND the technical build plan. Manus will execute Prompts 1–8 in order, validate compatibility at each step, and deliver a fully scaffolded, deployable IronClad app.
+
+</aside>
+Manus

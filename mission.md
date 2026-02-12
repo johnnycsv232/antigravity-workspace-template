@@ -1,14 +1,33 @@
 # Agent Mission
 
-**Objective:** Build a stock analysis agent.
+**Objective:** Build and operate the IronClad agentic platform — an AI-powered missed-call capture system for home-service contractors.
 
 ## Description
-This agent should be able to take a stock ticker symbol (e.g., "GOOGL", "AAPL") and provide a comprehensive analysis including:
-1.  Current price and recent performance.
-2.  Latest news headlines related to the company.
-3.  A summary of analyst ratings.
+
+IronClad detects missed inbound calls for HVAC, plumbing, electrical, and roofing businesses, then texts the caller back in **under 10 seconds** — qualifying the lead, booking the appointment, and notifying the business owner.
+
+### Core Capabilities
+
+1. **Missed-Call Detection** — Trigger on missed call, voicemail, inbound SMS, or web-form lead.
+2. **Instant Text-Back** — AI-powered SMS response within 10 seconds of trigger.
+3. **Lead Qualification** — Capture name, phone, zip, service type, urgency, and permission to text.
+4. **Routing & Booking** — Hand off to dispatch, book via calendar, or create CRM ticket.
+5. **Reporting** — Weekly lead capture summaries and ROI metrics for each client.
+
+## Target Market
+
+- **Verticals:** HVAC (primary), Plumbing, Electrical, Roofing
+- **Geography:** Minneapolis / Hennepin County, MN (expanding)
+- **ICP:** $1M–$20M revenue, 5–50 techs, already getting inbound calls
 
 ## Success Criteria
-- The agent can successfully retrieve real-time data.
-- The output is a concise, readable report.
-- The agent handles invalid tickers gracefully.
+
+- Every missed call receives a text-back within 10 seconds.
+- Leads are qualified with all required data fields.
+- Client onboarding completes in ≤48 hours.
+- System handles provider failures gracefully with fallback routing.
+- Agent adheres to TCPA compliance in all SMS and voice interactions.
+
+## SSOT Reference
+
+- `docs/ironclad/knowledge-base/IronClad v1 — Locked SSOT Spec*.md`

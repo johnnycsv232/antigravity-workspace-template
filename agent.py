@@ -13,7 +13,7 @@ from src.agent import GeminiAgent
 
 def main():
     task = " ".join(sys.argv[1:]).strip() or os.environ.get(
-        "AGENT_TASK", "帮助我查看今天的天气"
+        "AGENT_TASK", "Show agent status and available tools"
     )
 
     agent = GeminiAgent()
