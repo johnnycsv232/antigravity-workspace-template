@@ -20,7 +20,7 @@ jobs:
         id: changelog
         run: |
           # Get previous tag
-          PREV_TAG=$(git tag --sort=-creatordate | head -2 | tail -1)
+          PREV_TAG=$(git tag --sort=-creatordate | grep -v "^$CURRENT_TAG$" | head -n 1)
           CURRENT_TAG=${GITHUB_REF#refs/tags/}
 
           if [ -z "$PREV_TAG" ] || [ "$PREV_TAG" = "$CURRENT_TAG" ]; then
