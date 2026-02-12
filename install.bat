@@ -1,19 +1,19 @@
 @echo off
-REM Antigravity Workspace Template Installer for Windows
-REM This script sets up the development environment automatically
+REM IronClad / Antigravity Workspace — Installer for Windows
+REM Sets up the development environment automatically
 
 setlocal enabledelayedexpansion
 
 echo.
-echo 🪐 Antigravity Workspace Template - Installer
-echo =============================================
+echo 🛡️ IronClad × Antigravity Workspace — Installer
+echo ================================================
 echo.
 
 REM Check if Python 3 is installed
 python --version >nul 2>&1
 if errorlevel 1 (
     echo ❌ Error: Python is not installed.
-    echo Please install Python 3.8 or higher from https://www.python.org/downloads/
+    echo Please install Python 3.10 or higher from https://www.python.org/downloads/
     echo Make sure to check "Add Python to PATH" during installation.
     pause
     exit /b 1
@@ -79,34 +79,27 @@ echo ✅ Dependencies installed
 REM Initialize configuration
 echo 🔧 Setting up configuration...
 
-REM Create .env if it doesn't exist
+REM Create .env from .env.example if it doesn't exist
 if not exist ".env" (
-    (
-        echo # Antigravity Workspace Configuration
-        echo # Copy this file and configure your API keys
-        echo.
-        echo # Google Gemini API Key (Required)
-        echo GOOGLE_API_KEY=your_api_key_here
-        echo.
-        echo # Optional: OpenAI API Key for alternative LLM
-        echo # OPENAI_API_KEY=your_openai_key_here
-        echo.
-        echo # Optional: Model Configuration
-        echo # MODEL_NAME=gemini-2.0-flash-exp
-    ) > .env
-    echo ✅ Created .env file (please configure your API keys)
+    if exist ".env.example" (
+        copy .env.example .env >nul
+        echo ✅ Created .env from .env.example (configure your API keys)
+    ) else (
+        echo GOOGLE_API_KEY= > .env
+        echo ✅ Created minimal .env file
+    )
 ) else (
     echo ⚠️  .env file already exists. Skipping creation.
 )
 
-REM Create artifacts directory if it doesn't exist
-if not exist "artifacts\" (
-    mkdir artifacts
-    echo ✅ Created artifacts directory
+REM Create required directories
+if not exist "artifacts\logs\" (
+    mkdir artifacts\logs
 )
+echo ✅ Ensured artifacts\logs\ directory exists
 
 echo.
-echo =============================================
+echo ================================================
 echo ✅ Installation complete!
 echo.
 echo Next steps:
@@ -119,6 +112,7 @@ echo 3. Run the agent:
 echo    python src/agent.py
 echo.
 echo 📚 Documentation: docs/en/QUICK_START.md
-echo =============================================
+echo 📋 IronClad SSOT: docs/ironclad/knowledge-base/
+echo ================================================
 echo.
 pause

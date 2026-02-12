@@ -1,0 +1,52 @@
+# Git
+.git/
+.gitignore
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.cursorrules
+
+# Agent artifacts (runtime-generated, not needed in image)
+artifacts/
+agent_memory.json
+src/agent_memory.json
+
+# Documentation (not needed in runtime image)
+docs/
+README*.md
+LICENSE
+CONTEXT.md
+AGENTS.md
+
+# Skills library (large, loaded at IDE-level not runtime)
+.antigravity/skills/
+
+# Tests (not needed in production image)
+tests/
+
+# OpenSpec (dev-only)
+openspec/
+
+# Scripts (not needed in image)
+install.sh
+install.bat
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore

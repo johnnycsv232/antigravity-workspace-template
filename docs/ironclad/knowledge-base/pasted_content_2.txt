@@ -1,0 +1,150 @@
+## 🔒 Single Source of Truth (SSOT) Policy
+
+<aside>
+🔒
+
+**SSOT ENFORCEMENT — NO COPY/PRICING/BRAND DRIFT**
+The `constants.ts` file below and the Locked Landing Page Copy above are the **single source of truth** for all brand, pricing, stats, and copy. Every asset — site, ads, emails, sales scripts, Stripe products, pitch decks — MUST pull from these sources. If you change pricing, change it in `constants.ts` and the copy section, then propagate everywhere. Never edit a downstream asset without updating the source first.
+
+**Consistency rule:** Starter/Pro/Premium with setup + monthly pricing must match across: landing page, Stripe Checkout, cold email sequences, pitch decks, onboarding docs, and ROI calculator defaults. If any asset disagrees with `constants.ts`, that asset has a bug.
+
+</aside>
+
+## 📦 Constants File
+
+```tsx
+// src/lib/utils/constants.ts
+
+export const BRAND = {
+  name: 'IronClad',
+  tagline: 'Missed-Call Capture',
+  colors: {
+    navy: '#1B2A4A',
+    gold: '#D4A843',
+    white: '#FFFFFF',
+    gray: '#F5F5F5',
+    darkNavy: '#0F1B33',
+    text: '#1A1A1A',
+    textMuted: '#6B7280',
+  },
+  fonts: {
+    heading: 'Inter, system-ui, sans-serif',
+    body: 'system-ui, sans-serif',
+  },
+  social: {
+    facebook: 'YOUR_FB_URL',
+    instagram: 'YOUR_IG_URL',
+    linkedin: 'YOUR_LI_URL',
+  },
+  legal: { tos: '/legal/terms', privacy: '/legal/privacy' },
+  contact: { email: 'YOUR_EMAIL', phone: 'YOUR_PHONE' },
+}
+
+export const PLANS = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    setup: 149,
+    monthly: 97,
+    features: [
+      'AI missed-call texting',
+      'SMS notifications',
+      'Basic qualification',
+      'Up to 50 leads/mo',
+      'Email support',
+    ],
+    stripePriceId: 'YOUR_STRIPE_STARTER_PRICE',
+  },
+  {
+    id: 'pro',
+    name: 'Pro',
+    setup: 249,
+    monthly: 197,
+    popular: true,
+    features: [
+      'Everything in Starter',
+      'Advanced AI qualification',
+      'SMS + Email notifications',
+      'Basic reports',
+      'Up to 200 leads/mo',
+      'Priority support',
+    ],
+    stripePriceId: 'YOUR_STRIPE_PRO_PRICE',
+  },
+  {
+    id: 'premium',
+    name: 'Premium',
+    setup: 399,
+    monthly: 347,
+    features: [
+      'Everything in Pro',
+      'Custom AI flows',
+      'Full dashboard',
+      'Unlimited leads',
+      'ROI reports',
+      'Dedicated onboarding',
+      'Slack integration',
+    ],
+    stripePriceId: 'YOUR_STRIPE_PREMIUM_PRICE',
+  },
+]
+
+export const STATS = {
+  missedCallRate: 40,
+  neverCallBack: 85,
+  callNextContractor: 80,
+  responseTime: '<10 seconds',
+  avgTicketRange: '$500–$1,500+',
+}
+```
+
+---
+
+## ✅ Definition of Done (Ship Criteria)
+
+<aside>
+🚢
+
+**NOTHING SHIPS WITHOUT MEETING ALL OF THESE.** A feature is "done" when it passes every row below. "It works on my machine" is not done.
+
+</aside>
+
+| **Category** | **Requirement** | **Target** | **Status** |
+| --- | --- | --- | --- |
+| **Lighthouse** | Performance score | 95+ | ⬜ |
+| **Lighthouse** | Accessibility score | 100 | ⬜ |
+| **Lighthouse** | Best Practices score | 95+ | ⬜ |
+| **Lighthouse** | SEO score | 100 | ⬜ |
+| **Monitoring** | Sentry wrapping all API routes | 100% coverage | ⬜ |
+| **Monitoring** | PostHog tracking all CTAs + pages | All events firing | ⬜ |
+| **Bundle** | Total dependencies in package.json | <20 | ⬜ |
+| **Compatibility** | Compatibility Report approved by founder | Approved | ⬜ |
+| **SSOT** | All copy/pricing matches constants.ts | Zero drift | ⬜ |
+| **Psychology** | 12-principle checklist scored 4+ on every principle | 12/12 at 4+ | ⬜ |
+| **Stitch Loop** | All UI components passed Stitch Loop + Validation Engine | 12/12 PASS per component | ⬜ |
+| **Validation Gate** | All 8 gates on the Gate Scoreboard are ✅ | 8/8 green | ⬜ |
+
+### 📊 Minimal Event Schema (PostHog)
+
+| **Event Name** | **Properties** | **Trigger** |
+| --- | --- | --- |
+| `cta_click` | which_cta, page, variant | Any CTA button clicked |
+| `lead_form_submit` | form_type (analysis / contact), email, business_type | Response-time analysis or contact form submitted |
+| `roi_calc_change` | missed_calls, avg_job_value, calculated_revenue | ROI calculator slider moved |
+| `checkout_start` | plan (starter / pro / premium) | Stripe Checkout session created |
+| `checkout_complete` | plan, setup_fee, monthly, stripe_session_id | Stripe Checkout succeeded |
+| `webhook_success` | type (twilio_voice / twilio_sms / stripe), latency_ms | Webhook processed successfully |
+| `webhook_fail` | type, error_code, error_message | Webhook processing failed |
+| `page_view` | page, referrer, utm_source, utm_medium | Any page loaded |
+| `scroll_depth` | page, depth_percent (25 / 50 / 75 / 100) | User scrolls past threshold |
+
+**Rule:** If an event in this schema is not firing in PostHog after deploy, the feature is not shipped.
+
+---
+
+<aside>
+🛡️
+
+**Paste this entire page into Manus AFTER the main system prompt.** Together, the system prompt + this orchestration doc give the agent everything it needs: the business brain AND the technical build plan. Manus will execute Prompts 1–8 in order, validate compatibility at each step, and deliver a fully scaffolded, deployable IronClad app.
+
+</aside>

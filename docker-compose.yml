@@ -1,13 +1,32 @@
-version: '3.8'
-
 services:
   agent:
     build: .
-    container_name: antigravity-agent
+    container_name: ironclad-agent
+    env_file:
+      - .env
     environment:
+      # Agent config
+      - AGENT_NAME=IronCladAgent
+      - DEBUG_MODE=false
+      - MCP_ENABLED=true
+      # Google Gemini
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
-      - AGENT_NAME=ProductionAgent
-      - DEBUG_MODE=true
+      # Twilio (telephony)
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
+      # Stripe (billing)
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+      # OpenAI (qualification AI)
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # Database
+      - DATABASE_URL=${DATABASE_URL}
+      # PostHog (analytics)
+      - POSTHOG_API_KEY=${POSTHOG_API_KEY}
+      - POSTHOG_HOST=${POSTHOG_HOST}
     volumes:
       - ./agent_memory.json:/app/agent_memory.json
+      - ./.context:/app/.context:ro
+      - ./mcp_servers.json:/app/mcp_servers.json:ro
     restart: unless-stopped

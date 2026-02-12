@@ -1,13 +1,17 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "MCP Servers Configuration for Antigravity Agent",
+  "description": "MCP Servers Configuration for IronClad / Antigravity Agent",
   "servers": [
     {
       "name": "filesystem",
       "description": "Access to local filesystem operations",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/tmp"
+      ],
       "enabled": false,
       "env": {}
     },
@@ -16,59 +20,77 @@
       "description": "GitHub API integration for repository management",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "enabled": true,
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
       }
     },
     {
       "name": "postgres",
-      "description": "PostgreSQL database access",
+      "description": "PostgreSQL database access for IronClad data",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-postgres"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres"
+      ],
+      "enabled": true,
       "env": {
         "POSTGRES_CONNECTION_STRING": "${DATABASE_URL}"
       }
     },
     {
       "name": "brave-search",
-      "description": "Web search using Brave Search API",
+      "description": "Web search for market research and competitor analysis",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "enabled": true,
       "env": {
         "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     },
     {
       "name": "memory",
-      "description": "Persistent memory storage for the agent",
+      "description": "Persistent memory storage for agent state",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "enabled": true,
       "env": {}
     },
     {
       "name": "puppeteer",
-      "description": "Browser automation and web scraping",
+      "description": "Browser automation for prospect research and testing",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ],
+      "enabled": true,
       "env": {}
     },
     {
       "name": "slack",
-      "description": "Slack workspace integration",
+      "description": "Slack workspace integration for notifications",
       "transport": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-slack"],
-      "enabled": false,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-slack"
+      ],
+      "enabled": true,
       "env": {
         "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
         "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
@@ -76,7 +98,7 @@
     },
     {
       "name": "custom-http",
-      "description": "Example HTTP/Streamable HTTP server",
+      "description": "Custom HTTP/Streamable HTTP server (n8n webhooks, etc.)",
       "transport": "http",
       "url": "http://localhost:8000/mcp",
       "enabled": false,
