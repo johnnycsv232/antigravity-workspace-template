@@ -7,6 +7,7 @@ Get up and running with **IronClad** in minutes.
 - Python 3.9+
 - pip or conda
 - Git
+- Node.js 22+ (for landing page workspace)
 
 ## 🏃 Local Development
 
@@ -122,6 +123,26 @@ pytest tests/test_agent.py -v
 pytest --cov=src tests/
 ```
 
+## 🌐 Landing Page Workspace
+
+The landing page lives in `landing/` (React + TypeScript + Vite).
+
+```bash
+# from repo root
+make landing-install
+make landing-dev
+make landing-verify
+```
+
+Equivalent npm commands:
+
+```bash
+npm --prefix landing ci
+npm --prefix landing run dev
+npm --prefix landing run lint
+npm --prefix landing run build
+```
+
 ## 🐛 Troubleshooting
 
 ### Agent doesn't start
@@ -171,6 +192,7 @@ See [MCP Integration Guide](MCP_INTEGRATION.md) for detailed setup.
 - **Multi-Agent**: [Swarm Protocol](SWARM_PROTOCOL.md)
 - **Advanced**: [Zero-Config Features](ZERO_CONFIG.md)
 - **Roadmap**: [Development Roadmap](ROADMAP.md)
+- **Landing Setup**: [Landing Page Foundation](LANDING_PAGE_FOUNDATION.md)
 
 ---
 

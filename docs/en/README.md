@@ -8,6 +8,7 @@ Welcome to the comprehensive documentation for **IronClad** — a production-gra
 
 - **[Quick Start Guide](QUICK_START.md)** — Installation, local development, and first steps
 - **[Project Philosophy](PHILOSOPHY.md)** — Core concepts and Artifact-First protocol
+- **[Landing Page Foundation](LANDING_PAGE_FOUNDATION.md)** — Frontend setup and build workflow
 
 ### Core Features
 
@@ -49,6 +50,7 @@ Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (support
 | Use multiple agents | [Multi-Agent Swarm](SWARM_PROTOCOL.md) |
 | Understand the architecture | [Project Philosophy](PHILOSOPHY.md) |
 | See what's coming | [Development Roadmap](ROADMAP.md) |
+| Build the landing page | [Landing Page Foundation](LANDING_PAGE_FOUNDATION.md) |
 
 ## 📊 Project Structure
 
@@ -57,6 +59,7 @@ Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (support
 ├── .antigravity/        # 🛸 Antigravity config/rules
 ├── .context/            # 📚 Knowledge base auto-injected
 ├── artifacts/           # 📂 Agent outputs (plans, logs, visuals)
+├── landing/             # 🌐 Landing page frontend workspace
 ├── src/                 # 🧠 Agent source code
 │   ├── agent.py         # Main agent loop
 │   ├── memory.py        # JSON memory manager

@@ -138,6 +138,19 @@ This is **not** another LangChain wrapper. It's a minimal, transparent workspace
 - **[MCP Integration](docs/en/MCP_INTEGRATION.md)** — External tool connectivity
 - **[Swarm Protocol](docs/en/SWARM_PROTOCOL.md)** — Multi-agent coordination
 - **[Roadmap](docs/en/ROADMAP.md)** — Future phases & vision
+- **[Landing Page Foundation](docs/en/LANDING_PAGE_FOUNDATION.md)** — Frontend setup for landing-page implementation
+
+## 🌐 Landing Page Workspace
+
+This repo includes a dedicated frontend app in `landing/` (React + TypeScript + Vite) so you can build the marketing site without touching backend agent code.
+
+From the project root:
+
+```bash
+make landing-install
+make landing-dev
+make landing-verify
+```
 
 ## 🏗️ Project Structure
 
@@ -153,6 +166,7 @@ src/
 .context/             # Knowledge base (auto-injected)
 .antigravity/         # Antigravity rules
 artifacts/            # Outputs & evidence
+landing/              # Landing page frontend workspace
 ```
 
 ## 💡 Example: Build a Tool in 30 Seconds

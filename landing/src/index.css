@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', 'Avenir Next', sans-serif;
+  --bg-deep: #060a16;
+  --bg-mid: #0a1527;
+  --line: rgb(208 238 255 / 14%);
+  --text: #f3fcff;
+  --muted: #acc3d8;
+  --mint: #6cfdd7;
+
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg-deep);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(1000px 500px at 98% -10%, rgb(118 107 255 / 20%), transparent 64%),
+    radial-gradient(760px 450px at -12% 30%, rgb(85 218 255 / 24%), transparent 62%),
+    linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
+}
+
+#root {
+  min-height: 100vh;
+}
